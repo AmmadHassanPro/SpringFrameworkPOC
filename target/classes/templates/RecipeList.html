@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Recipe List</title>
+</head>
+<body style="max-width:900px">
+
+<h1>Recipe List</h1>
+
+
+		
+ 
+     <div th:each="Recipe : ${Recipes}">
+      <br>
+      <h2 th:text="${Recipe.name}"></h2>
+      <div>
+      <img th:src="@{'data:image/jpeg;base64,'+*{T(org.apache.tomcat.util.codec.binary.Base64).encodeBase64String(Recipe.Image)}}" height="180" width="260" align="left" >
+     
+     <b>Prep Time:</b><span th:text="${Recipe.prepTime != null }? ${Recipe.prepTime}: 'N/A' "></span> 
+   	 <b>Servings:</b><span th:text="${Recipe.servings}"></span>
+   	  <b>Category:</b><span th:each="rec_cat : ${Recipe.categories}">
+   	  
+   	  <span th:text="${rec_cat.description}"></span>
+   	  
+   	  </span>
+   	 </div>
+    
+      <diV>
+        
+      <span th:text="${Recipe.recipeNotes.recipeNotes}"></span>
+      </diV>
+      <div style="clear: both;"><h3>Ingredients:</h3>
+    
+      <div th:each="rec_ingre : ${Recipe.ingredients}">
+    	 <br>
+      <span>-</span>
+      <span th:text="${rec_ingre.amount}"></span>
+      <span th:text="${rec_ingre.uom != null} ?${rec_ingre.uom.description} : ' ' "></span>
+       <span th:text="${rec_ingre.description}"></span>
+     
+       </ol>
+       </div>
+      </div>
+      <br>
+      <h2>Method:</h2>
+       <div th:utext="${Recipe.directions}">
+       
+       
+       
+       </div>
+      </div>
+   
+</body>
+</html>
