@@ -74,7 +74,7 @@ public class RecipeControllerTestSuite {// This Junit test case will validate if
 	assertEquals(recipe_page,"RecipeList");// Verifying if the string returned by the controller is the same as the one returned by our mock
 	verify(recpie_service,times(1)).findAll();//Verifying if the method is executed only one time
 	verify(model,times(1)).addAttribute(eq("Recipes"),arg_capture.capture());//Verifying if the method is executed only one time.// Capturing argument passed are two, so it will enusre that only two Recipe objects are initialized on start
-	List<Recipe> captured = arg_capture.getValue();	
+	List<Recipe> captured = arg_capture.getValue();
 	assertEquals(2,captured.size());
 	
 	}
