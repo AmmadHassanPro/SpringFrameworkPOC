@@ -75,7 +75,7 @@ public class RecipeControllerTestSuite {// This Junit test case will validate if
 	verify(recpie_service,times(1)).findAll();//Verifying if the method is executed only one time
 	verify(model,times(1)).addAttribute(eq("Recipes"),arg_capture.capture());//Verifying if the method is executed only one time.// Capturing argument passed are two, so it will enusre that only two Recipe objects are initialized on start
 	List<Recipe> captured = arg_capture.getValue();
-	assertEquals(3,captured.size());
+	assertEquals(2,captured.size());
 	
 	}
 
