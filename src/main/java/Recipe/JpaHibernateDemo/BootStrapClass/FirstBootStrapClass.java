@@ -1,4 +1,4 @@
-package Recipe.JpaHibernateDemo.BootStrapClass;
+	package Recipe.JpaHibernateDemo.BootStrapClass;
 
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;

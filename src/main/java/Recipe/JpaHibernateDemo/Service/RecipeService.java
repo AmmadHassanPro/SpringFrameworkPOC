@@ -1,6 +1,7 @@
 package Recipe.JpaHibernateDemo.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.tomcat.util.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +28,14 @@ public List<Recipe> findAll() {
 public void save(Recipe recipe) {
 	
 	recipe_repo.save(recipe);
+	
+}
+
+public Recipe findById(String string) throws Exception{
+	Long id = Long.valueOf(string);
+	Optional<Recipe> optRecipe = recipe_repo.findById(id);
+	Recipe recipe = optRecipe.get();
+	return recipe;
 	
 }
 
