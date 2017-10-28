@@ -7,14 +7,14 @@ public class IngredientCommand {
 	public Long id;
 	private String description;
 	private BigDecimal amount;
-	private UnitOfMeasure uom;
+	private UnitOfMeasureCommand uom;
 	public Long getId() {
 		return id;
 	}
-	public UnitOfMeasure getUom() {
+	public UnitOfMeasureCommand getUom() {
 		return uom;
 	}
-	public void setUom(UnitOfMeasure uom) {
+	public void setUom(UnitOfMeasureCommand uom) {
 		this.uom = uom;
 	}
 	public void setId(Long id) {
