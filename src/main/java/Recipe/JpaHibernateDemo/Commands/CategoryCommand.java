@@ -1,13 +1,5 @@
 package Recipe.JpaHibernateDemo.Commands;
 
-import java.util.Set;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
-import Recipe.JpaHibernateDemo.Entities.Recipe;
 // A Command Object for Category Entity
 public class CategoryCommand {
 	    private Long id;

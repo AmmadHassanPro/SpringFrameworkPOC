@@ -1,12 +1,6 @@
 package Recipe.JpaHibernateDemo.Commands;
 
 import java.math.BigDecimal;
-
-import javax.persistence.FetchType;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
-
-import Recipe.JpaHibernateDemo.Entities.Recipe;
 import Recipe.JpaHibernateDemo.Entities.UnitOfMeasure;
 //A Command Object for Ingredient Entity
 public class IngredientCommand {
