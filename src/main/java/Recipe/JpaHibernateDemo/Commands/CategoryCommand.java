@@ -9,7 +9,7 @@ import javax.persistence.ManyToMany;
 
 import Recipe.JpaHibernateDemo.Entities.Recipe;
 // A Command Object for Category Entity
-public class CategoryCommanClass {
+public class CategoryCommand {
 	    private Long id;
 	    private String description;  
 	    public Long getId() {
