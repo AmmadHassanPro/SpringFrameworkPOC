@@ -1,5 +1,6 @@
 package Recipe.JpaHibernateDemo.Commands;
 
+import java.util.HashSet;
 import java.util.Set;
 
 
@@ -17,8 +18,8 @@ public class RecipeCommand {
 	private String url;
    private String directions;
    private NotesCommand recipeNotes;
-   private Set<IngredientCommand> ingredients;
-   private Set<CategoryCommand> categories;
+   private Set<IngredientCommand> ingredients =new HashSet<IngredientCommand>();
+   private Set<CategoryCommand> categories=new HashSet<CategoryCommand>();
   public Set<CategoryCommand> getCategories() {
 		return categories;
 	}
