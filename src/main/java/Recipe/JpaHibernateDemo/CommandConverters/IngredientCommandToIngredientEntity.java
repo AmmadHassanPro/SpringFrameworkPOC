@@ -12,6 +12,8 @@ public class IngredientCommandToIngredientEntity implements Converter<Ingredient
 	
 	@Autowired
 	private Ingredient ingredientObj;
+	@Autowired
+	private UnitOfMeasureCommandToUnitOfMeasureEntity uomctoe;
 	@Override
 	public Ingredient convert(IngredientCommand ingredientCommand) {
 		
@@ -21,7 +23,8 @@ public class IngredientCommandToIngredientEntity implements Converter<Ingredient
 		}
 		
 		ingredientObj.setId(ingredientCommand.getId());
-		//ingredientObj.setUom(ingredientCommand.getUom()); Need to implement Later
+		// Converting the returned objected from ingredientCommand, which will be UnitOfMeasureCommand object, to UnitOfMeasureEntity Object
+		ingredientObj.setUom(uomctoe.convert(ingredientCommand.getUom())); 
 		ingredientObj.setDescription(ingredientCommand.getDescription());
 		
 		return ingredientObj;

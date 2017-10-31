@@ -1,11 +1,13 @@
 package Recipe.JpaHibernateDemo.CommandConverters;
 
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
 import Recipe.JpaHibernateDemo.Commands.IngredientCommand;
 import Recipe.JpaHibernateDemo.Commands.UnitOfMeasureCommand;
 import Recipe.JpaHibernateDemo.Entities.Ingredient;
 import Recipe.JpaHibernateDemo.Entities.UnitOfMeasure;
+@Component
 
 public class UnitOfMeasureEntityToUnitOfMeasureCommand implements Converter<UnitOfMeasure,UnitOfMeasureCommand>{
 
