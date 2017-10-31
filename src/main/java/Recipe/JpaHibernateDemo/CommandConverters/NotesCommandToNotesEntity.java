@@ -1,26 +1,26 @@
 package Recipe.JpaHibernateDemo.CommandConverters;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
 import Recipe.JpaHibernateDemo.Commands.NotesCommand;
-import Recipe.JpaHibernateDemo.Commands.UnitOfMeasureCommand;
 import Recipe.JpaHibernateDemo.Entities.Notes;
-import Recipe.JpaHibernateDemo.Entities.UnitOfMeasure;
 @Component
-public class NotesCommandToNotesEntity implements Converter<Notes,NotesCommand>{
-
+public class NotesCommandToNotesEntity implements Converter<NotesCommand,Notes>{
+	@Autowired
+	private Notes notesEntity;
+	
 	@Override
-	public NotesCommand convert(Notes NotesEnity) {
-		if(NotesEnity == null)
-		{
+	public Notes convert(NotesCommand notesCommand) {
+		if(notesCommand == null) {
 		return null;
 		}
 		
-		final NotesCommand notesCommand = new NotesCommand();
-		notesCommand.setId(NotesEnity.getId());
-		notesCommand.setRecipeNotes(notesCommand.getRecipeNotes());
-		return notesCommand; 
+		notesEntity.setId(notesCommand.getId());
+		notesEntity.setRecipeNotes(notesCommand.getRecipeNotes());
+		return notesEntity;
+		
 	}
 
 }
