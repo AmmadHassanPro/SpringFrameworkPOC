@@ -1,5 +1,7 @@
 package Recipe.JpaHibernateDemo.CommandConverters;
 
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
@@ -14,6 +16,8 @@ public class IngredientCommandToIngredientEntity implements Converter<Ingredient
 	private Ingredient ingredientObj;
 	@Autowired
 	private UnitOfMeasureCommandToUnitOfMeasureEntity uomctoe;
+	@Autowired
+	private Set<Ingredient> ingredientSet;
 	@Override
 	public Ingredient convert(IngredientCommand ingredientCommand) {
 		
@@ -30,5 +34,20 @@ public class IngredientCommandToIngredientEntity implements Converter<Ingredient
 		return ingredientObj;
 		
 	}
+	//Method for converting List of IngredientCommands to List of Ingredient Entities
+	public Set<Ingredient> convertToIngredientSet(Set<IngredientCommand> ingredientsCommandList) {
+		if(ingredientsCommandList==null) {
+			return null;
+		}
+		for(IngredientCommand ingredientCommand: ingredientsCommandList) {
+			ingredientSet.add(this.convert(ingredientCommand));
+			
+			
+		}
+		
+		return ingredientSet;
+	}
+	
+	
 
 }
