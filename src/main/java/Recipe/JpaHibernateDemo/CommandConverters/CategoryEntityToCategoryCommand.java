@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import Recipe.JpaHibernateDemo.Commands.CategoryCommand;
 @Component
-public class CategoryEntityToCategoryCommandConvertor implements Converter<Category, CategoryCommand>{
+public class CategoryEntityToCategoryCommand implements Converter<Category, CategoryCommand>{
 
 	@Override
 	public CategoryCommand convert(Category categoryEntity) {
