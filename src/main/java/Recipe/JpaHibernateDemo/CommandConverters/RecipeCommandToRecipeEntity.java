@@ -2,13 +2,14 @@ package Recipe.JpaHibernateDemo.CommandConverters;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
 
 import Recipe.JpaHibernateDemo.Commands.NotesCommand;
 import Recipe.JpaHibernateDemo.Commands.RecipeCommand;
 import Recipe.JpaHibernateDemo.Entities.Notes;
 import Recipe.JpaHibernateDemo.Entities.Recipe;
 
-
+@Component
 public class RecipeCommandToRecipeEntity implements Converter<RecipeCommand,Recipe>{
 @Autowired
 private Recipe recipeEntity;
