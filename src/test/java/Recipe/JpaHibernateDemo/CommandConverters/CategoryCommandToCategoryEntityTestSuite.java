@@ -97,7 +97,9 @@ public class CategoryCommandToCategoryEntityTestSuite {
 					if (resultList1.get(i).getId() > resultList1.get(i+1).getId()) {
 						temp1= resultList1.get(i);
 						temp2= resultList1.get(i+1);
+						resultList1.remove(i);
 						resultList1.add(i, temp2);
+						resultList1.remove(i+1);
 						resultList1.add(i+1, temp1);
 					}
 					
@@ -119,7 +121,9 @@ public class CategoryCommandToCategoryEntityTestSuite {
 					if (resultList1.get(i).getId() > resultList1.get(i+1).getId()) {
 						temp1= resultList1.get(i);
 						temp2= resultList1.get(i+1);
+						resultList1.remove(i);
 						resultList1.add(i, temp2);
+						resultList1.remove(i+1);
 						resultList1.add(i+1, temp1);
 					}
 					
