@@ -11,7 +11,6 @@ import Recipe.JpaHibernateDemo.Commands.CategoryCommand;
 import Recipe.JpaHibernateDemo.Entities.Category;
 @Component
 public class CategoryCommandToCategoryEntity implements Converter<CategoryCommand, Category>{
-	@Autowired
 	private Category categoryEntity;
 	private Set<Category> categoryEntitySet;
 	@Override
