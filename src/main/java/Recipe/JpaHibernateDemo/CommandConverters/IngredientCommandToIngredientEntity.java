@@ -25,7 +25,7 @@ public class IngredientCommandToIngredientEntity implements Converter<Ingredient
 		
 		return null;
 		}
-		
+		ingredientObj = new Ingredient();
 		ingredientObj.setId(ingredientCommand.getId());
 		// Converting the returned objected from ingredientCommand, which will be UnitOfMeasureCommand object, to UnitOfMeasureEntity Object
 		ingredientObj.setUom(uomctoe.convert(ingredientCommand.getUom())); 
