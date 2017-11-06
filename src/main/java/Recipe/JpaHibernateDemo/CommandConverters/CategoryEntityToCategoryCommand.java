@@ -20,5 +20,6 @@ public class CategoryEntityToCategoryCommand implements Converter<Category, Cate
 		categoryCommand.setId(categoryEntity.getId());
 		return categoryCommand;
 	}
+	
 
 }

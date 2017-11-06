@@ -2,6 +2,7 @@ package Recipe.JpaHibernateDemo.CommandConverters;
 
 import static org.junit.Assert.*;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -34,6 +35,14 @@ public void setUp() {
 		
 		assertEquals(categoryCommand.getId(),categoryEntity.getId());
 		assertEquals(categoryCommand.getDescription(),categoryEntity.getDescription());
+		
+	}
+	
+	@Test
+	public void nullCheck() {
+		categoryEntity = null;
+		categoryCommand = cetcc.convert(categoryEntity);
+		Assert.assertNull(categoryEntity);
 		
 	}
 

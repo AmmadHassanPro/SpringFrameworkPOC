@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -73,7 +74,7 @@ public class IngredientCommandToIngredientEntityTestSuite {
 		Ingredient temp1 = new Ingredient();
 		Ingredient temp2 = new Ingredient();		
 		for(int i=0;i<list2bSorted.size()-1;i++) {
-			for(int m=0;m<list2bSorted.size()-i;m++) {
+			for(int m=list2bSorted.size()-1;m<list2bSorted.size()-i;m--) {
 				if(list2bSorted.get(i).getId() < list2bSorted.get(i+1).getId()) {
 					temp1 = list2bSorted.get(i);
 					temp2 = list2bSorted.get(i+1);
@@ -92,7 +93,7 @@ public class IngredientCommandToIngredientEntityTestSuite {
 		IngredientCommand temp1 = new IngredientCommand();
 		IngredientCommand temp2 = new IngredientCommand();		
 		for(int i=0;i<list2bSorted.size()-1;i++) {
-			for(int m=0;m<list2bSorted.size()-i;m++) {
+			for(int m=list2bSorted.size()-1;m<list2bSorted.size()-i;m--) {
 				if(list2bSorted.get(i).getId() < list2bSorted.get(i+1).getId()) {
 					temp1 = list2bSorted.get(i);
 					temp2 = list2bSorted.get(i+1);
@@ -119,6 +120,19 @@ public class IngredientCommandToIngredientEntityTestSuite {
 	}
 	
 	
+	@Test 
+	public void nullCheck() {
+		
+		ingCommand = null;
+		ingredientEntity = ictie.convert(ingCommand);
+		Assert.assertNull(ingredientEntity);
+		
+		ingCommandSet = null;
+		ingEntitySet = ictie.convertToIngredientSet(ingCommandSet);
+		Assert.assertNull(ingEntitySet);
+		
+		
+	}
 	
 	
 	

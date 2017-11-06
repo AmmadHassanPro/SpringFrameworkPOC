@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Set;
 import java.util.TreeSet;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -86,6 +87,22 @@ public class CategoryCommandToCategoryEntityTestSuite {
 		
 	}
 	
+	
+	@Test
+	public void nullCheck() {
+		Category catEntity = new Category();
+		CategoryCommand cc = null;
+		catEntity = this.cctce.convert(cc);
+		Assert.assertNull(catEntity);
+
+		Set<Category> catEntitySet = new HashSet<Category>();
+		Set<CategoryCommand> catCommandSet = null;
+		catEntitySet = this.cctce.convertToCategorySet(catCommandSet);
+		Assert.assertNull(catEntitySet);
+
+	}
+	
+	
 	// Function to apply Bubble sort for sorting elements for Set and casting it to List
 	public List<Category> SortListCategory(List<Category> catList2bsorted) {
 		List<Category> resultList1 = catList2bsorted;
@@ -93,7 +110,7 @@ public class CategoryCommandToCategoryEntityTestSuite {
 			Category temp2 = new Category() ;
 			for(int i=0;i<catList2bsorted.size()-1;i++) {
 				
-				for(int m=0;m<catList2bsorted.size()-i;m++) {
+				for(int m=catList2bsorted.size()-1;m<catList2bsorted.size()-i;m--) {
 					if (resultList1.get(i).getId() > resultList1.get(i+1).getId()) {
 						temp1= resultList1.get(i);
 						temp2= resultList1.get(i+1);
@@ -117,7 +134,7 @@ public class CategoryCommandToCategoryEntityTestSuite {
 		CategoryCommand temp2 = new CategoryCommand() ;
 			for(int i=0;i<catList2bsorted.size()-1;i++) {
 				
-				for(int m=0;m<catList2bsorted.size()-i;m++) {
+				for(int m=catList2bsorted.size()-1;m<catList2bsorted.size()-i;m--) {
 					if (resultList1.get(i).getId() > resultList1.get(i+1).getId()) {
 						temp1= resultList1.get(i);
 						temp2= resultList1.get(i+1);
