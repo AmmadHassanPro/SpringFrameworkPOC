@@ -27,7 +27,10 @@ public List<Category> findAll(){
 }
 
 public Category findByDescription(String description){
-	
+	if(description==null || description=="") {
+		
+		return null;
+	}
 	Optional<Category> cat_optional = cat_repo.findByDescription(description);
 	Category cat = cat_optional.get();
 	return cat;
@@ -36,6 +39,10 @@ public Category findByDescription(String description){
 	
 }
 public void save(Category cat) {
+	if(cat == null) {
+		
+		return;
+	}
 	
 	cat_repo.save(cat);
 	
