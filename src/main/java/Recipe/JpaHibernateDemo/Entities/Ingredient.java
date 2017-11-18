@@ -23,7 +23,7 @@ private String description;
 private BigDecimal amount;
 @ManyToOne
 private Recipe recipes;
-@OneToOne (fetch = FetchType.EAGER)
+@OneToOne (fetch = FetchType.EAGER,cascade = CascadeType.MERGE)
 private UnitOfMeasure uom;
 public Long getId() {
 	return id;
