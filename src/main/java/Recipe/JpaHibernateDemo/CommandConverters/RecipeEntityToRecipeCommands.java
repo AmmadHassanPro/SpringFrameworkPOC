@@ -61,6 +61,7 @@ public class RecipeEntityToRecipeCommands implements Converter<Recipe,RecipeComm
 		
 		//Ingredient Entity Set to Ingredient Command Set
 		ingSet = recipeEntity.getIngredients();
+		iter = ingSet.iterator();
 		Ingredient ing;
 		while(iter.hasNext()) {
 			ing = (Ingredient) iter.next();
