@@ -12,9 +12,9 @@ public class AddNewRecipeController {
 	public String getRecipeList(Model model) {
     
 		return "NewRecipe";
-		
-	
 	}
+	
+	
 	
 	
 	
