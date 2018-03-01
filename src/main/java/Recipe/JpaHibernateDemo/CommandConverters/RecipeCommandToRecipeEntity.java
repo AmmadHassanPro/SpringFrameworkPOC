@@ -24,6 +24,7 @@ private NotesCommandToNotesEntity nctne;
 		if(recipeCommand == null) {
 		return null;
 		}
+		recipeEntity.setId(recipeCommand.getId());
 		recipeEntity.setDescription(recipeCommand.getDescription());
 		recipeEntity.setCookTime(recipeCommand.getCookTime());
 		recipeEntity.setPrepTime(recipeCommand.getPrepTime());
