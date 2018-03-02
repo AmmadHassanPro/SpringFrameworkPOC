@@ -31,7 +31,7 @@ public class RecipeController {
 	private Recipe recipe;
 	@Autowired
 	private RecipeCommandToRecipeEntity recipeCon;
-    public RecipeController(RecipeService recpie_service) {
+    public RecipeController(RecipeService recpie_service) {// Constructor based Dependency Injection
 		super();
 		this.recpie_service = recpie_service;
 	}
