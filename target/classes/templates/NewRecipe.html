@@ -24,13 +24,6 @@
 		</div>						
 			<ul >
 			
-			<li id="li_1" >
-		<label class="description" for="element_1">ID </label>
-		<div>
-			<input th:field="*{id}" id="element_1" name="element_1" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>
-			
 		<li id="li_2" >
 		<label th:field="*{description}" class="description" for="element_1">Recipe Name </label>
 		<div>
@@ -82,6 +75,12 @@
 		<label class="description" for="element_9">Recipe Description </label>
 		<div>
 			<textarea th:field="*{directions}" id="element_9" name="element_9" class="element textarea medium"></textarea> 
+		</div> 
+		</li>
+		<li id="li_10" >
+		<label class="description" for="element_10">Notes </label>
+		<div>
+			<textarea th:field="*{recipeNotes.recipeNotes}" id="element_10" name="element_10" class="element textarea medium"></textarea> 
 		</div> 
 		</li>
 			
