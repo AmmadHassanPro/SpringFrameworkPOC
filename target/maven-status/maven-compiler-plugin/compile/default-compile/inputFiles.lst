@@ -1,4 +1,5 @@
 /Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/Service/CategoryService.java
+/Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernatDemo/Utilities/ImageConverter.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/Entities/Difficulty.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/Entities/Notes.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/Entities/Ingredient.java
@@ -7,9 +8,9 @@
 /Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/Commands/UnitOfMeasureCommand.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/Commands/RecipeCommand.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/Commands/NotesCommand.java
+/Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/BootStrapClass/DatabaseInitiaization.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/BootStrapClass/FirstBootStrapClass.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/Commands/IngredientCommand.java
-/Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/Controller/AddNewRecipeController.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/Entities/Category.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryCommandToCategoryEntity.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/main/java/Recipe/JpaHibernateDemo/Repository/RecipeRepository.java

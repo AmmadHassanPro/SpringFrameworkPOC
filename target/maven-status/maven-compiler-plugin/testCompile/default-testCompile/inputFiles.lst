@@ -2,7 +2,6 @@
 /Users/ammadhassan/git/SpringFrameworkPOC/src/test/java/Recipe/JpaHibernateDemo/CommandConverters/NotesEntityToNotesCommandTestSuite.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/test/java/Recipe/JpaHibernateDemo/CommandConverters/NotesCommandToNotesEntityTestSuite.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/test/java/Recipe/JpaHibernateDemo/Service/RecipeServiceTestSuite.java
-/Users/ammadhassan/git/SpringFrameworkPOC/src/test/java/Recipe/JpaHibernateDemo/AddNewRecipeControllerTestSuite.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/test/java/Recipe/JpaHibernateDemo/CommandConverters/IngredientCommandToIngredientEntityTestSuite.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/test/java/Recipe/JpaHibernateDemo/JpaHibernateDemoApplicationTests.java
 /Users/ammadhassan/git/SpringFrameworkPOC/src/test/java/Recipe/JpaHibernateDemo/CommandConverters/RecipeCommandToRecipeEntityTestSuite.java

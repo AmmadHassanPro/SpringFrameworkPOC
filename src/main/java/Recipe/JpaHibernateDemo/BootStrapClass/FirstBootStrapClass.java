@@ -16,6 +16,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import Recipe.JpaHibernatDemo.Utilities.ImageConverter;
 import Recipe.JpaHibernateDemo.Entities.Category;
 import Recipe.JpaHibernateDemo.Entities.Difficulty;
 import Recipe.JpaHibernateDemo.Entities.Ingredient;
@@ -48,6 +49,8 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 	
 	@Autowired
 	private RecipeRepository recipe_repo;
+	
+	private ImageConverter byteArrayConverter = new ImageConverter();
 
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent arg0) {
@@ -183,7 +186,7 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		
 		generalRecipe.setIngredients(ingredients_set);
 		
-		generalRecipe.setImage(getByteArray("http://www.simplyrecipes.com/wp-content/uploads/2014/05/guacamole-horiz-a-1600.jpg"));
+		generalRecipe.setImage(byteArrayConverter.ConvertToByteArray("http://www.simplyrecipes.com/wp-content/uploads/2014/05/guacamole-horiz-a-1600.jpg"));
 		recipe_repo.save(generalRecipe);
 		
 		
@@ -385,77 +388,12 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		ingredients_set.add(generalIngredient);
 		
 		generalRecipe.setIngredients(ingredients_set);
-		generalRecipe.setImage(getByteArray("http://www.simplyrecipes.com/wp-content/uploads/2017/05/2017-05-29-GrilledChickenTacos-2.jpg"));
+		generalRecipe.setImage(byteArrayConverter.ConvertToByteArray("http://www.simplyrecipes.com/wp-content/uploads/2017/05/2017-05-29-GrilledChickenTacos-2.jpg"));
 		recipe_repo.save(generalRecipe);		
 		
 		
 	}
-	
-	byte[] getByteArray(String Url) {
-		
-		ByteArrayOutputStream baos =new ByteArrayOutputStream();;
-		try {
-			URL imageURL = new URL(Url);
-			BufferedImage originalImage=ImageIO.read(imageURL);
-			ImageIO.write(originalImage, "jpg", baos );
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		return baos.toByteArray();
-		
-		
-	}
-	//For Junit database initialization
-	
-	public void initData() {
-		Category cat = new Category();
-		cat.setDescription("American");
-		cat_service.save(cat);
-		
-		
-		cat.setDescription("Italian");
-		cat_service.save(cat);
-		
-		cat.setDescription("Mexican");
-		cat_service.save(cat);
-		
-		cat.setDescription("Fast Food");
-		cat_service.save(cat);
-		
-		
-		UnitOfMeasure uom = new UnitOfMeasure();
-		uom.setDescription("Teaspoon");
-		uom_service.save(uom);
-		
-		uom.setDescription("Tablespoon");
-		uom_service.save(uom);
-		
-		uom.setDescription("Cup");
-		uom_service.save(uom);
-		
-		uom.setDescription("Pinch");
-		uom_service.save(uom);
-		
-		uom.setDescription("Clove");
-		uom_service.save(uom);
-		
-		uom.setDescription("Small");
-		uom_service.save(uom);
-		
-		uom.setDescription("Medium");
-		uom_service.save(uom);
-		
-		uom.setDescription("Pint");
-		uom_service.save(uom);
-		
-		uom.setDescription("Dash");
-		uom_service.save(uom);
-		
-		
-	}
+
 	
 	
 	
