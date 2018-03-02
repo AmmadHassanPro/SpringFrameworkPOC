@@ -9,9 +9,13 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import Recipe.JpaHibernateDemo.CommandConverters.RecipeCommandToRecipeEntity;
+import Recipe.JpaHibernateDemo.Commands.RecipeCommand;
 import Recipe.JpaHibernateDemo.Entities.Ingredient;
 import Recipe.JpaHibernateDemo.Entities.Recipe;
 import Recipe.JpaHibernateDemo.Entities.UnitOfMeasure;
@@ -25,6 +29,8 @@ public class RecipeController {
 	private List<Recipe> recipe_list;
 	@Autowired
 	private Recipe recipe;
+	@Autowired
+	private RecipeCommandToRecipeEntity recipeCon;
     public RecipeController(RecipeService recpie_service) {
 		super();
 		this.recpie_service = recpie_service;
@@ -36,9 +42,7 @@ public class RecipeController {
     	this.recipe_list =  this.recpie_service.findAll();
 		model.addAttribute("Recipes",this.recipe_list);
 		return "RecipeList";
-		
-	
-	}
+		}
 	
 	@RequestMapping("/getRecipeById{id}")
 	public String getRecipeById(@PathVariable String id, Model model) throws Exception {
@@ -46,9 +50,28 @@ public class RecipeController {
 		this.recipe = this.recpie_service.findById(id);
 		model.addAttribute("Recipe",this.recipe);
 		return "RecipeById";
-		
-	
 	}
+	
+
+	@RequestMapping("/addNewRecipe")
+	public String addNewRecipe(Model model) {
+		model.addAttribute("recipe", new RecipeCommand());
+		return "NewRecipe";
+	}
+	
+	@PostMapping
+	@RequestMapping("/saveOrUpdateRecipe")
+	public String saveOrUpdateRecipe(@ModelAttribute RecipeCommand recipeCommand) {
+		Recipe recipeEntity= recipeCon.convert(recipeCommand);
+		this.recpie_service.save(recipeEntity);
+	
+		return "redirect:/getRecipe";
+	}
+	
+	
+	
+	
+	
 	
 	
 }
