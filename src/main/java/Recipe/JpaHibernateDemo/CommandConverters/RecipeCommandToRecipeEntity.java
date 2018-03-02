@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.stereotype.Component;
 
+import Recipe.JpaHibernatDemo.Utilities.ImageConverter;
 import Recipe.JpaHibernateDemo.Commands.NotesCommand;
 import Recipe.JpaHibernateDemo.Commands.RecipeCommand;
 import Recipe.JpaHibernateDemo.Entities.Notes;
@@ -19,6 +20,8 @@ private CategoryCommandToCategoryEntity cctcec;
 private IngredientCommandToIngredientEntity ictiec;
 @Autowired
 private NotesCommandToNotesEntity nctne;
+private ImageConverter imgConv = new ImageConverter();
+
 	@Override
 	public Recipe convert(RecipeCommand recipeCommand) {
 		if(recipeCommand == null) {
@@ -41,6 +44,7 @@ private NotesCommandToNotesEntity nctne;
 		recipeEntity.setIngredients(ictiec.convertToIngredientSet(recipeCommand.getIngredients()));
 		//Converting Notes Command to Notes Entity and setting it in recipeEntity
 		recipeEntity.setRecipeNotes(nctne.convert(recipeCommand.getRecipeNotes()));
+		recipeEntity.setImage(imgConv.ConvertToByteArray(recipeCommand.getUrl()));
 		
 		return recipeEntity;
 		
