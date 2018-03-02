@@ -7,7 +7,7 @@ import java.util.Set;
 import Recipe.JpaHibernateDemo.Entities.Difficulty;
 //A Command Object for Recipe Entity
 public class RecipeCommand {
-	public Long id;	
+	public Long id=null;	
 	 private Difficulty difficulty;
 	 private String name;
 	private String description;
