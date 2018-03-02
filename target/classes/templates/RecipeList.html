@@ -20,7 +20,6 @@
      <b>Prep Time:</b><span th:text="${Recipe.prepTime != null }? ${Recipe.prepTime}: 'N/A' "></span> 
    	 <b>Servings:</b><span th:text="${Recipe.servings}"></span>
    	  <b>Category:</b><span th:each="rec_cat : ${Recipe.categories}">
-   	  <b>Description:</b>
    	  <span th:text="${rec_cat.description}"></span>
    	  
    	  </span>
