@@ -2,7 +2,7 @@ package Recipe.JpaHibernateDemo.Commands;
 
 //A Command Object for Notes Entity
 public class NotesCommand {
-    private Long id;
+    private Long id=null;
     private String recipeNotes;
 	public Long getId() {
 		return id;
