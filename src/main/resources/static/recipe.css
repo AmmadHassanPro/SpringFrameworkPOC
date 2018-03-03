@@ -1,0 +1,41 @@
+body{
+	
+	  background-image: url("pattern.png");
+    background-repeat: repeat-y repeat-x;
+    font: 15px garamond, sans-serif;
+   
+}
+#container{
+	border: 1px solid black;
+	border-radius: 3px;
+	width: 700px;
+  margin:10px auto;
+  padding: 5px 5px 5px 5px;
+  background-color:#F5F5F5;
+   box-shadow: 5px 5px #404040;
+	
+  
+}
+
+#RecipeImage
+{
+	
+	height:180px ;
+	width:260px; 
+	float:left;
+	padding-right:10px;
+	padding-bottom:10px;
+}
+
+#Notes
+{
+	margin-top:10px;
+	
+}
+#Title
+{
+	
+	width:auto;
+margin: auto;
+padding-bottom:10px;
+}
