@@ -3,19 +3,21 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Recipe List</title>
+
+<link rel="stylesheet" type="text/css" href="recipe.css" >
+
+
 </head>
-<body style="max-width:900px">
+<body >
 
 <h1>Recipe List</h1>
 
 
-		
  
-     <div th:each="Recipe : ${Recipes}">
-      <br>
-      <h2 th:text="${Recipe.name}"></h2>
+     <div th:each="Recipe : ${Recipes}" id="container">
+      <h2 id="Title" th:text="${Recipe.name}"></h2>
       <div>
-      <img th:src="@{'data:image/jpeg;base64,'+*{T(org.apache.tomcat.util.codec.binary.Base64).encodeBase64String(Recipe.Image)}}" height="180" width="260" align="left" >
+      <img th:src="@{'data:image/jpeg;base64,'+*{T(org.apache.tomcat.util.codec.binary.Base64).encodeBase64String(Recipe.Image)}}" id="RecipeImage" >
      
      <b>Prep Time:</b><span th:text="${Recipe.prepTime != null }? ${Recipe.prepTime}: 'N/A' "></span> 
    	 <b>Servings:</b><span th:text="${Recipe.servings}"></span>
@@ -25,10 +27,12 @@
    	  </span>
    	 </div>
     
-      <diV>
+      <div id="Notes">
+      
         <b>Notes:</b>
       <span th:text="${Recipe.recipeNotes != null} ? ${Recipe.recipeNotes.recipeNotes} : ''"></span>
       </diV>
+      
       <div style="clear: both;"><h3>Ingredients:</h3>
     
       <div th:each="rec_ingre : ${Recipe.ingredients}">
@@ -37,8 +41,6 @@
       <span th:text="${rec_ingre.amount}"></span>
       <span th:text="${rec_ingre.uom != null} ?${rec_ingre.uom.description} : ' ' "></span>
        <span th:text="${rec_ingre.description}"></span>
-     
-       </ol>
        </div>
       </div>
       <br>
