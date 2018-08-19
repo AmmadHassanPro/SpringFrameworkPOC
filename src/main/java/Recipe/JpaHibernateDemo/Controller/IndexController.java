@@ -27,15 +27,8 @@ public IndexController(CategoryRepository cat_repo,UnitOfMeasureRepository uom_r
     @RequestMapping({"", "/", "/index"})
 
     public String getIndexPage(){
-    	
-    	Optional<Category> cat_op = cat_repo.findByDescription("American");
-    	Optional<UnitOfMeasure> uom_op = uom_repo.findByDescription("Pinch");
-    	
-    	System.out.println("Category ID : " +cat_op.get().getId());
-    	System.out.println("Unite OF Measure ID : " +uom_op.get().getId());
-    	
 
-        return "index";
+    	return "redirect:/getRecipe";
 
     }
 
