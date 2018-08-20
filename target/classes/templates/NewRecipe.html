@@ -63,24 +63,30 @@
 		<li id="li_8" >
 		<label class="description" for="element_8">Difficulty </label>
 		<div>
-			<select>
-			<option>Easy</option>
-			<option>Hard</option>
-			<option>Kind Of Hard</option>
-			<option>Moderate</option>
+			<select th:field="*{difficulty}">
+			<option th:value="EASY" th:text="EASY"></option>
+			<option th:value="HARD" th:text="HARD"></option>
+		  	<option th:value="KIND_OF_HARD">Kind Of Hard</option> 
+			<option th:value="Moderate" th:text="Moderate"></option>
 			</select>
+		</div> 
+		</li>
+		<li id="li_9" >
+		<label class="description" for="element_9">Description </label>
+		<div>
+			<textarea th:field="*{description}" id="element_9" name="element_9" class="element textarea medium"></textarea> 
 		</div> 
 		</li>		
 		<li id="li_9" >
-		<label class="description" for="element_9">Recipe Description </label>
+		<label class="description" for="element_10">Direction </label>
 		<div>
-			<textarea th:field="*{directions}" id="element_9" name="element_9" class="element textarea medium"></textarea> 
+			<textarea th:field="*{directions}" id="element_10" name="element_10" class="element textarea medium"></textarea> 
 		</div> 
 		</li>
 		<li id="li_10" >
-		<label class="description" for="element_10">Notes </label>
+		<label class="description" for="element_11">Notes </label>
 		<div>
-			<textarea th:field="*{recipeNotes.recipeNotes}" id="element_10" name="element_10" class="element textarea medium"></textarea> 
+			<textarea th:field="*{recipeNotes.recipeNotes}" id="element_11" name="element_11" class="element textarea medium"></textarea> 
 		</div> 
 		</li>
 			
