@@ -5,7 +5,9 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
@@ -116,7 +118,7 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		generalRecipe.setDifficulty(generalDifficulty.EASY);
 		
 		//Adding Ingredients
-		Set<Ingredient> ingredients_set = new HashSet<Ingredient>();
+		List<Ingredient> ingredients_set = new ArrayList<Ingredient>();
 		// Ingredient 1
 		generalIngredient.setDescription("ripe avocados");
 		generalIngredient.setAmount(new BigDecimal("2.00"));
@@ -230,7 +232,7 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 
 
 		//Adding Ingredients
-		ingredients_set = new HashSet<Ingredient>();
+		ingredients_set = new ArrayList<Ingredient>();
 		// Ingredient 1
 		generalIngredient.setDescription("ancho chili powder");
 		generalIngredient.setAmount(new BigDecimal("2.00"));

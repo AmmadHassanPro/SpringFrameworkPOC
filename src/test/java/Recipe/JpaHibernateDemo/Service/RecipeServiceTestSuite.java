@@ -44,7 +44,7 @@ public class RecipeServiceTestSuite {
 	@Autowired
 	private Ingredient ing;
 	@Autowired
-	private Set<Ingredient> ingSet;
+	private List<Ingredient> ingSet;
 	@Autowired
 	private Set<Category> catSet;
 	@Autowired
@@ -61,7 +61,7 @@ public class RecipeServiceTestSuite {
 		ing.setDescription("Sample example");
 		ing.setAmount(new BigDecimal(4));
 		ing.setUom(this.uomEntity);
-		ingSet = new HashSet<Ingredient>();
+		ingSet = new ArrayList<Ingredient>();
 		catSet = new HashSet<Category>();
 		ingSet.add(this.ing);
 		catSet.add(this.catEntity);

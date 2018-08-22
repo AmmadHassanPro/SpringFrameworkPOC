@@ -1,6 +1,8 @@
 package Recipe.JpaHibernateDemo.Commands;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 
@@ -19,7 +21,7 @@ public class RecipeCommand {
    private String directions;
  
    private NotesCommand recipeNotes;
-   private Set<IngredientCommand> ingredients =new HashSet<IngredientCommand>();
+   private List<IngredientCommand> ingredients =new ArrayList<IngredientCommand>();
    private Set<CategoryCommand> categories=new HashSet<CategoryCommand>();
    
   public Set<CategoryCommand> getCategories() {
@@ -42,7 +44,7 @@ public class RecipeCommand {
 		return id;
 	}
    
-	public Set<IngredientCommand> getIngredients() {
+	public List<IngredientCommand> getIngredients() {
 		return ingredients;
 	}
    public String getName() {
@@ -81,7 +83,7 @@ public class RecipeCommand {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public void setIngredients(Set<IngredientCommand> ingredients) {
+	public void setIngredients(List<IngredientCommand> ingredients) {
 		this.ingredients = ingredients;
 	}
 	public void setName(String name) {

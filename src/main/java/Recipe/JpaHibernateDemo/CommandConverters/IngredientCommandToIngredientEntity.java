@@ -1,6 +1,8 @@
 package Recipe.JpaHibernateDemo.CommandConverters;
 
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,7 @@ public class IngredientCommandToIngredientEntity implements Converter<Ingredient
 	private Ingredient ingredientObj;
 	@Autowired
 	private UnitOfMeasureCommandToUnitOfMeasureEntity uomctoe;
-	private Set<Ingredient> ingredientSet;
+	private List<Ingredient> ingredientSet;
 	@Override
 	public Ingredient convert(IngredientCommand ingredientCommand) {
 		
@@ -26,6 +28,7 @@ public class IngredientCommandToIngredientEntity implements Converter<Ingredient
 		}
 		ingredientObj = new Ingredient();
 		ingredientObj.setId(ingredientCommand.getId());
+		ingredientObj.setAmount(ingredientCommand.getAmount());
 		// Converting the returned objected from ingredientCommand, which will be UnitOfMeasureCommand object, to UnitOfMeasureEntity Object
 		ingredientObj.setUom(uomctoe.convert(ingredientCommand.getUom())); 
 		ingredientObj.setDescription(ingredientCommand.getDescription());
@@ -34,12 +37,12 @@ public class IngredientCommandToIngredientEntity implements Converter<Ingredient
 		
 	}
 	//Method for converting List of IngredientCommands to List of Ingredient Entities
-	public Set<Ingredient> convertToIngredientSet(Set<IngredientCommand> ingredientsCommandList) {
-		ingredientSet = new HashSet<Ingredient>();
-		if(ingredientsCommandList==null) {
+	public List<Ingredient> convertToIngredientSet(List<IngredientCommand> list) {
+		ingredientSet = new ArrayList<Ingredient>();
+		if(list==null) {
 			return null;
 		}
-		for(IngredientCommand ingredientCommand: ingredientsCommandList) {
+		for(IngredientCommand ingredientCommand: list) {
 			ingredientSet.add(this.convert(ingredientCommand));
 			
 			

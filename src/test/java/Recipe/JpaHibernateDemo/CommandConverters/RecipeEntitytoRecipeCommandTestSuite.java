@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Before;
@@ -44,12 +45,12 @@ public class RecipeEntitytoRecipeCommandTestSuite {
 	@Autowired
 	Ingredient ingEntity;
 	@Autowired
-	Set<Ingredient> ingredients;
+	List<Ingredient> ingredients;
 	@Autowired
 	RecipeEntityToRecipeCommands converter;
 	
 	
-	public Set<Ingredient> initIngredients (Recipe recs){
+	public List<Ingredient> initIngredients (Recipe recs){
 		
 		ingEntity.setId(1L);
 		ingEntity.setAmount(new BigDecimal(15));

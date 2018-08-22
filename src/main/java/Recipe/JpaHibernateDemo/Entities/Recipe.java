@@ -45,7 +45,7 @@ public class Recipe {
 	    // private Byte[] Image;
 		@OneToMany(cascade = CascadeType.ALL)
 		@JoinTable(name="recipe_ingredients")
-	    private Set<Ingredient> ingredients;
+	    private List<Ingredient> ingredients;
 	    @ManyToMany(cascade = CascadeType.MERGE)
 		@JoinTable(name = "recipe_category",joinColumns = @JoinColumn(name = "recipe_id"),inverseJoinColumns = @JoinColumn(name = "category_id"))
 	    private Set<Category> categories;
@@ -72,7 +72,7 @@ public class Recipe {
 	    public byte[] getImage() {
 			return Image;
 		}
-		public Set<Ingredient> getIngredients() {
+		public List<Ingredient> getIngredients() {
 			return ingredients;
 		}
 	    public String getName() {
@@ -114,8 +114,8 @@ public class Recipe {
 		public void setImage(byte[] image) {
 			Image = image;
 		}
-		public void setIngredients(Set<Ingredient> ingredients) {
-			this.ingredients = ingredients;
+		public void setIngredients(List<Ingredient> list) {
+			this.ingredients = list;
 		}
 		public void setName(String name) {
 			this.name = name;

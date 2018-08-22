@@ -15,12 +15,14 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import Recipe.JpaHibernateDemo.CommandConverters.RecipeCommandToRecipeEntity;
+import Recipe.JpaHibernateDemo.Commands.IngredientCommand;
 import Recipe.JpaHibernateDemo.Commands.RecipeCommand;
 import Recipe.JpaHibernateDemo.Entities.Ingredient;
 import Recipe.JpaHibernateDemo.Entities.Recipe;
 import Recipe.JpaHibernateDemo.Entities.UnitOfMeasure;
 import Recipe.JpaHibernateDemo.Repository.RecipeRepository;
 import Recipe.JpaHibernateDemo.Service.RecipeService;
+import Recipe.JpaHibernateDemo.Service.UnitOfMeasureService;
 @Controller
 public class RecipeController {
 	
@@ -35,6 +37,10 @@ public class RecipeController {
 		super();
 		this.recpie_service = recpie_service;
 	}
+    
+    //added UOM Service
+    @Autowired
+    private UnitOfMeasureService uomService; // to do, Add this to the constructor and unit tests
 
 
 	@RequestMapping("/getRecipe")
@@ -55,7 +61,11 @@ public class RecipeController {
 
 	@RequestMapping("/addNewRecipe")
 	public String addNewRecipe(Model model) {
-		model.addAttribute("recipe", new RecipeCommand());
+		RecipeCommand recipeCommand = new RecipeCommand();
+		recipeCommand.setIngredients(new ArrayList<IngredientCommand>());
+		model.addAttribute("recipe", recipeCommand);
+		model.addAttribute("uomList",uomService.findAll());
+		
 		return "NewRecipe";
 	}
 	

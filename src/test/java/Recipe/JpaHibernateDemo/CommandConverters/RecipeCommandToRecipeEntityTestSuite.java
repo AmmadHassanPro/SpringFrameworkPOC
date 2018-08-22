@@ -3,7 +3,9 @@ package Recipe.JpaHibernateDemo.CommandConverters;
 import static org.junit.Assert.*;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import org.junit.Assert;
@@ -32,7 +34,7 @@ public class RecipeCommandToRecipeEntityTestSuite {
 	private Recipe recipeEntity;
 	
 	private RecipeCommand recipeCommand;
-	private Set<IngredientCommand> ingredients;
+	private List<IngredientCommand> ingredients;
 	private Set<CategoryCommand> categories;
 	private NotesCommand notesCommand;
 	private Difficulty difficulty;
@@ -42,7 +44,7 @@ public class RecipeCommandToRecipeEntityTestSuite {
 	@Before
 	public void setUp(){
 		recipeCommand = new RecipeCommand();
-		ingredients = new HashSet<IngredientCommand>();
+		ingredients = new ArrayList<IngredientCommand>();
 		categories = new HashSet<CategoryCommand>();
 		catCommand = new CategoryCommand();
 		catCommand.setId(1L);

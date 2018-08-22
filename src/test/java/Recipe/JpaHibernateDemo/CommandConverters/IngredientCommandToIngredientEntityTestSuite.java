@@ -23,20 +23,20 @@ import Recipe.JpaHibernateDemo.Entities.Ingredient;
 public class IngredientCommandToIngredientEntityTestSuite {
 	
 	private IngredientCommand ingCommand;
-	private Set<IngredientCommand> ingCommandSet;
+	private List<IngredientCommand> ingCommandSet;
 	@Autowired
 	private IngredientCommandToIngredientEntity ictie;
 	@Autowired 
 	private Ingredient ingredientEntity;
-	private Set<Ingredient> ingEntitySet;
+	private List<Ingredient> ingEntitySet;
 	
 	
 	@Before
 	public void setUp() {
 		
-		this.ingCommandSet = new HashSet<IngredientCommand>();
+		this.ingCommandSet = new ArrayList<IngredientCommand>();
 		this.ingCommand = new IngredientCommand();
-		this.ingEntitySet = new HashSet<Ingredient>();
+		this.ingEntitySet = new ArrayList<Ingredient>();
 		
 		
 	}

@@ -1,5 +1,7 @@
 package Recipe.JpaHibernateDemo.Service;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 
@@ -35,6 +37,16 @@ public void save(UnitOfMeasure uom) {
 	
 }
 
+public List<UnitOfMeasure> findAll() {
+	
+	List<UnitOfMeasure> uomList = new ArrayList<UnitOfMeasure>();
+	Iterable<UnitOfMeasure> i =  uom_repo.findAll();
+	Iterator m = i.iterator();
+	while(m.hasNext()) {
+		uomList.add((UnitOfMeasure) m.next());
+	}
+	return uomList;
+}
 
 
 	

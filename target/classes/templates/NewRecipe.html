@@ -71,6 +71,25 @@
 			</select>
 		</div> 
 		</li>
+		
+		<!-- Ingredient Div Start -->
+		
+		<li id="li_7" >
+		<label class="description" for="element_7">Ingredients </label>
+		<div>
+				
+			<input name="ingredients[0].description" id="element_7" class="element text medium" type="text" maxlength="255" value=""/>
+			<input name="ingredients[0].amount" type="number" id="element_7"/>
+			<select name="ingredients[0].uom.id">
+			<option th:each="unitOfMeasure : ${uomList}" th:text="${unitOfMeasure.description}" th:value="${unitOfMeasure.id}"></option>
+		  	</select>
+			
+			
+		</div> 
+		</li>	
+		<!-- Ingredient Div End -->
+		
+		
 		<li id="li_9" >
 		<label class="description" for="element_9">Description </label>
 		<div>

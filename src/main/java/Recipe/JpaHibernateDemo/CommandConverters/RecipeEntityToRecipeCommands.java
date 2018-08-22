@@ -1,7 +1,9 @@
 package Recipe.JpaHibernateDemo.CommandConverters;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,10 +24,10 @@ public class RecipeEntityToRecipeCommands implements Converter<Recipe,RecipeComm
 
 	private RecipeCommand recipeCommand = new RecipeCommand();
 	private Set<CategoryCommand> CatcommandsSet = new HashSet<CategoryCommand>();
-	private Set<IngredientCommand> IngcommandsSet = new HashSet<IngredientCommand>();
+	private ArrayList<IngredientCommand> IngcommandsSet = new ArrayList<IngredientCommand>();
 	
 	private Set<Category> catSet;
-	private Set<Ingredient> ingSet;
+	private List<Ingredient> ingSet;
 	
 	private Iterator iter;
 	
