@@ -863,3 +863,7 @@ background: #dedede;
 font-weight: bold;
 }
 
+.ingredientUnit{
+	border-style: 1px solid black;
+}
+
