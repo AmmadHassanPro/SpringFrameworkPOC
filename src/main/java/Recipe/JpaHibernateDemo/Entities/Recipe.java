@@ -48,8 +48,8 @@ public class Recipe {
 	    private List<Ingredient> ingredients;
 	    @ManyToMany(cascade = CascadeType.MERGE)
 		@JoinTable(name = "recipe_category",joinColumns = @JoinColumn(name = "recipe_id"),inverseJoinColumns = @JoinColumn(name = "category_id"))
-	    private Set<Category> categories;
-	   public Set<Category> getCategories() {
+	    private List<Category> categories;
+	   public List<Category> getCategories() {
 			return categories;
 		}
 		 public Integer getCookTime() {
@@ -93,8 +93,8 @@ public class Recipe {
 		public String getUrl() {
 			return url;
 		}
-		public void setCategories(Set<Category> categories) {
-			this.categories = categories;
+		public void setCategories(List<Category> list) {
+			this.categories = list;
 		}
 		public void setCookTime(Integer cookTime) {
 			this.cookTime = cookTime;

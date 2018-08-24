@@ -46,7 +46,7 @@ public class RecipeServiceTestSuite {
 	@Autowired
 	private List<Ingredient> ingSet;
 	@Autowired
-	private Set<Category> catSet;
+	private List<Category> catSet;
 	@Autowired
 	private UnitOfMeasureService uomService;
 	@Autowired
@@ -62,7 +62,7 @@ public class RecipeServiceTestSuite {
 		ing.setAmount(new BigDecimal(4));
 		ing.setUom(this.uomEntity);
 		ingSet = new ArrayList<Ingredient>();
-		catSet = new HashSet<Category>();
+		catSet = new ArrayList<Category>();
 		ingSet.add(this.ing);
 		catSet.add(this.catEntity);
 		

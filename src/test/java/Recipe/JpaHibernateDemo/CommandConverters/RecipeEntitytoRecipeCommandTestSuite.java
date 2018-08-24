@@ -39,7 +39,7 @@ public class RecipeEntitytoRecipeCommandTestSuite {
 	byte[] bte= {1,2,3};
 	Difficulty diff;
 	@Autowired
-	Set<Category> categories;
+	List<Category> categories;
 	@Autowired
 	Category catEntity;
 	@Autowired
@@ -72,7 +72,7 @@ public class RecipeEntitytoRecipeCommandTestSuite {
 		return notesEntity;
 	}
 	
-	public Set<Category> initCategories(Recipe rec) {
+	public List<Category> initCategories(Recipe rec) {
 		
 		catEntity.setId(1L);
 		catEntity.setDescription("Example Desc");

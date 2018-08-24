@@ -1,5 +1,6 @@
 package Recipe.JpaHibernateDemo.CommandConverters;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -12,7 +13,7 @@ import Recipe.JpaHibernateDemo.Entities.Category;
 @Component
 public class CategoryCommandToCategoryEntity implements Converter<CategoryCommand, Category>{
 	private Category categoryEntity;
-	private Set<Category> categoryEntitySet;
+	private List<Category> categoryEntityList = new ArrayList<Category>();
 	@Override
 	public Category convert(CategoryCommand categoryCommand) {
 		if(categoryCommand==null)
@@ -23,15 +24,14 @@ public class CategoryCommandToCategoryEntity implements Converter<CategoryComman
 		return this.categoryEntity;
 	}
 	//Method for converting List of CategoryCommands to List of Category Entities
-	public Set<Category> convertToCategorySet(Set<CategoryCommand> categoryCommandList) {
-		categoryEntitySet = new HashSet<Category>();
-		if(categoryCommandList==null)
+	public List<Category> convertToCategoryList(List<CategoryCommand> list) {
+		if(list==null)
 		{return null;}
-		for(CategoryCommand cc: categoryCommandList) {
-		this.categoryEntitySet.add(this.convert(cc));
+		for(CategoryCommand cc: list) {
+		this.categoryEntityList.add(this.convert(cc));
 		}
 		
-		return this.categoryEntitySet;
+		return this.categoryEntityList;
 	}
 	
 	

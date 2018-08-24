@@ -27,7 +27,7 @@ public class CategoryCommandToCategoryEntityTestSuite {
 	@Autowired
 	private Category catEntity;
 	@Autowired
-	private Set<Category> catEntitySet;
+	private List<Category> catEntitySet;
 	@Autowired
 	private CategoryCommandToCategoryEntity cctce;
 	
@@ -52,7 +52,7 @@ public class CategoryCommandToCategoryEntityTestSuite {
 	}
 	@Test
 	public void TestConvertSetMethod() {
-		Set<CategoryCommand> catcommSet = new HashSet<CategoryCommand>();	
+		List<CategoryCommand> catcommSet = new ArrayList<CategoryCommand>();	
 		CategoryCommand item1 = new CategoryCommand();
 		item1.setId(1L);
 		item1.setDescription("Test Description 2");
@@ -63,7 +63,7 @@ public class CategoryCommandToCategoryEntityTestSuite {
 		catcommSet.add(item1);
 		catcommSet.add(item2);
 		
-		catEntitySet= cctce.convertToCategorySet(catcommSet);
+		catEntitySet= cctce.convertToCategoryList(catcommSet);
 		
 		//Casting Set to List
 		List<Category> tempCatList = new ArrayList<Category>(catEntitySet);
@@ -95,9 +95,9 @@ public class CategoryCommandToCategoryEntityTestSuite {
 		catEntity = this.cctce.convert(cc);
 		Assert.assertNull(catEntity);
 
-		Set<Category> catEntitySet = new HashSet<Category>();
-		Set<CategoryCommand> catCommandSet = null;
-		catEntitySet = this.cctce.convertToCategorySet(catCommandSet);
+		List<Category> catEntitySet = new ArrayList<Category>();
+		List<CategoryCommand> catCommandSet = null;
+		catEntitySet = this.cctce.convertToCategoryList(catCommandSet);
 		Assert.assertNull(catEntitySet);
 
 	}

@@ -110,7 +110,7 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		generalNotes.setRecipe(generalRecipe);
 		generalRecipe.setRecipeNotes(generalNotes);
 		generalCat = cat_service.findByDescription("American");
-		Set<Category> cat_set = new HashSet<Category>();
+		List<Category> cat_set = new ArrayList<Category>();
 		cat_set.add(generalCat);	
 		generalRecipe.setCategories(cat_set);
 		Set<Recipe> recipe_set = new HashSet<Recipe>();		
@@ -223,7 +223,7 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		generalNotes.setRecipe(generalRecipe);
 		generalRecipe.setRecipeNotes(generalNotes);
 		generalCat = cat_service.findByDescription("Mexican");
-		cat_set = new HashSet<Category>();
+		cat_set = new ArrayList<Category>();
 		cat_set.add(generalCat);	
 		generalRecipe.setCategories(cat_set);
 		recipe_set = new HashSet<Recipe>();		

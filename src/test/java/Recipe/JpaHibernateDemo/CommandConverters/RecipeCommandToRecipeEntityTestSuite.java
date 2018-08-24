@@ -35,7 +35,7 @@ public class RecipeCommandToRecipeEntityTestSuite {
 	
 	private RecipeCommand recipeCommand;
 	private List<IngredientCommand> ingredients;
-	private Set<CategoryCommand> categories;
+	private List<CategoryCommand> categories;
 	private NotesCommand notesCommand;
 	private Difficulty difficulty;
 	private CategoryCommand catCommand;
@@ -45,7 +45,7 @@ public class RecipeCommandToRecipeEntityTestSuite {
 	public void setUp(){
 		recipeCommand = new RecipeCommand();
 		ingredients = new ArrayList<IngredientCommand>();
-		categories = new HashSet<CategoryCommand>();
+		categories = new ArrayList<CategoryCommand>();
 		catCommand = new CategoryCommand();
 		catCommand.setId(1L);
 		catCommand.setDescription("Test Description");

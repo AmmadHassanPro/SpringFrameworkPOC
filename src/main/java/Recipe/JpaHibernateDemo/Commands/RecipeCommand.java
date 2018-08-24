@@ -22,9 +22,9 @@ public class RecipeCommand {
  
    private NotesCommand recipeNotes;
    private List<IngredientCommand> ingredients =new ArrayList<IngredientCommand>();
-   private Set<CategoryCommand> categories=new HashSet<CategoryCommand>();
+   private List<CategoryCommand> categories=new ArrayList<CategoryCommand>();
    
-  public Set<CategoryCommand> getCategories() {
+  public List<CategoryCommand> getCategories() {
 		return categories;
 	}
 	 public Integer getCookTime() {
@@ -65,7 +65,7 @@ public class RecipeCommand {
 	public String getUrl() {
 		return url;
 	}
-	public void setCategories(Set<CategoryCommand> categories) {
+	public void setCategories(List<CategoryCommand> categories) {
 		this.categories = categories;
 	}
 	public void setCookTime(Integer cookTime) {

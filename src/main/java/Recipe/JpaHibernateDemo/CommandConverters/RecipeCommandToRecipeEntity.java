@@ -39,7 +39,7 @@ private ImageConverter imgConv = new ImageConverter();
 		recipeEntity.setSource(recipeCommand.getSource());
 		recipeEntity.setUrl(recipeCommand.getUrl());
 		//Converting List of CategoryCommands to List of Category Entities and setting it in recipeEntity
-		recipeEntity.setCategories(cctcec.convertToCategorySet(recipeCommand.getCategories()));
+		recipeEntity.setCategories(cctcec.convertToCategoryList(recipeCommand.getCategories()));
 		//Converting List of Ingredient Commands to List of Ingredient Entities and setting it in recipeEntity
 		recipeEntity.setIngredients(ictiec.convertToIngredientSet(recipeCommand.getIngredients()));
 		//Converting Notes Command to Notes Entity and setting it in recipeEntity

@@ -23,10 +23,10 @@ import Recipe.JpaHibernateDemo.Entities.Recipe;
 public class RecipeEntityToRecipeCommands implements Converter<Recipe,RecipeCommand> {
 
 	private RecipeCommand recipeCommand = new RecipeCommand();
-	private Set<CategoryCommand> CatcommandsSet = new HashSet<CategoryCommand>();
+	private List<CategoryCommand> CatcommandsSet = new ArrayList<CategoryCommand>();
 	private ArrayList<IngredientCommand> IngcommandsSet = new ArrayList<IngredientCommand>();
 	
-	private Set<Category> catSet;
+	private List<Category> catSet;
 	private List<Ingredient> ingSet;
 	
 	private Iterator iter;
