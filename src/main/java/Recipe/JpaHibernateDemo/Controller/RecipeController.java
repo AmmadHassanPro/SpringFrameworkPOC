@@ -49,6 +49,7 @@ public class RecipeController {
     private UnitOfMeasureService uomService; // to do, Add this to the constructor and unit tests
     @Autowired
     private CategoryService catService;// to do, Add this to the constructor and unit tests
+    private List<IngredientCommand> ingredientCommandList;  
 
 
 	@RequestMapping("/getRecipe")
@@ -70,16 +71,18 @@ public class RecipeController {
 	@RequestMapping("/addNewRecipe")
 	public String addNewRecipe(Model model) {
 		RecipeCommand recipeCommand = new RecipeCommand();
-		recipeCommand.setIngredients(new ArrayList<IngredientCommand>());
-		model.addAttribute("recipe", recipeCommand);
-		model.addAttribute("uomList",uomService.findAll());
+		
+		// Initializing Ingredient Command List, to set on the view
+		ingredientCommandList = new ArrayList<IngredientCommand>();
+		ingredientCommandList.add(new IngredientCommand()); // Adding one element to the list
+		recipeCommand.setIngredients(ingredientCommandList);
 		
 		// Converting Category Entity to Category Command
-		
 		List<Category> catEntityList= catService.findAll();
-		
 		List<CategoryCommand> catCommandList = categoryConverter.converToCategoryCommandList(catEntityList);
 		
+		model.addAttribute("recipe", recipeCommand);
+		model.addAttribute("uomList",uomService.findAll());
 		model.addAttribute("catList",catCommandList);
 		
 		return "NewRecipe";
