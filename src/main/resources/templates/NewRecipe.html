@@ -30,37 +30,50 @@
 			<input th:field="*{name}" id="element_1" name="element_1" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
 		</li>	
+			<li id="li_4" >
+		<label class="description" for="element_4">Category </label>
+		<div>
+		<fieldset>
+			
+		<!--  	<input type="checkbox" th:each="Category : ${catList}" th:text="${Category.description}" th:value="${Category.id}" th:field="*{categories[Category.id]}" />  -->
+		
+		<input type="checkbox" th:each="Category,iterStat : ${catList}" th:text="${Category.description}" th:value="${Category.id}" th:field="*{categories[__${iterStat.index}__].id}" />			
+		</fieldset>
+		</div> 
+		</li>	
+		
 		<li id="li_3" >
 		<label class="description" for="element_3">Prep Time (Minutes) </label>
-		<div>
+		<div> <!--  to Do -->
 			<input th:field="*{prepTime}" id="element_3" name="element_3" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
 		</li>		
-		<li id="li_4" >
+		
+		<li id="li_5" >
 		<label class="description" for="element_4">Cook Time (Minutes) </label>
 		<div>
 			<input th:field="*{cookTime}" id="element_4" name="element_4" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
 		</li>		
-		<li id="li_5" >
+		<li id="li_6" >
 		<label class="description" for="element_5">Servings </label>
 		<div>
 			<input th:field="*{servings}" id="element_5" name="element_5" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
 		</li>		
-		<li id="li_6" >
+		<li id="li_7" >
 		<label class="description" for="element_6">Source </label>
 		<div>
 			<input th:field="*{source}" id="element_6" name="element_6" class="element text medium" type="text" maxlength="255" value=""/> 
 		</div> 
 		</li>		
-		<li id="li_7" >
+		<li id="li_8" >
 		<label class="description" for="element_7">Image Url </label>
 		<div>
 			<input th:field="*{url}" id="element_7" name="element_7" class="element text medium" type="text" maxlength="255" value="http://"/> 
 		</div> 
 		</li>		
-		<li id="li_8" >
+		<li id="li_9" >
 		<label class="description" for="element_8">Difficulty </label>
 		<div>
 			<select th:field="*{difficulty}">
@@ -99,19 +112,19 @@
 		<!-- Ingredient Div End -->
 		
 		
-		<li id="li_9" >
+		<li id="li_10" >
 		<label class="description" for="element_9">Description </label>
 		<div>
 			<textarea th:field="*{description}" id="element_9" name="element_9" class="element textarea medium"></textarea> 
 		</div> 
 		</li>		
-		<li id="li_9" >
+		<li id="li_11" >
 		<label class="description" for="element_10">Direction </label>
 		<div>
 			<textarea th:field="*{directions}" id="element_10" name="element_10" class="element textarea medium"></textarea> 
 		</div> 
 		</li>
-		<li id="li_10" >
+		<li id="li_12" >
 		<label class="description" for="element_11">Notes </label>
 		<div>
 			<textarea th:field="*{recipeNotes.recipeNotes}" id="element_11" name="element_11" class="element textarea medium"></textarea> 

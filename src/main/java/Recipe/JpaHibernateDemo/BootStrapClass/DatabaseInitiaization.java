@@ -29,6 +29,7 @@ public class DatabaseInitiaization implements ApplicationListener<ContextRefresh
 	}
 
 		private void initData() {
+			/*
 			Category cat = new Category();
 			cat.setDescription("American");
 			cat_service.save(cat);
@@ -42,8 +43,9 @@ public class DatabaseInitiaization implements ApplicationListener<ContextRefresh
 			
 			cat.setDescription("Fast Food");
 			cat_service.save(cat);
+			*/
 			
-			
+			/*
 			UnitOfMeasure uom = new UnitOfMeasure();
 			uom.setDescription("Teaspoon");
 			uom_service.save(uom);
@@ -71,7 +73,7 @@ public class DatabaseInitiaization implements ApplicationListener<ContextRefresh
 			
 			uom.setDescription("Dash");
 			uom_service.save(uom);
-			
+			*/
 			
 		}
 

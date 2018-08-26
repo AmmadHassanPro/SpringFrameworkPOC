@@ -14,13 +14,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import Recipe.JpaHibernateDemo.CommandConverters.CategoryEntityToCategoryCommand;
 import Recipe.JpaHibernateDemo.CommandConverters.RecipeCommandToRecipeEntity;
+import Recipe.JpaHibernateDemo.Commands.CategoryCommand;
 import Recipe.JpaHibernateDemo.Commands.IngredientCommand;
 import Recipe.JpaHibernateDemo.Commands.RecipeCommand;
+import Recipe.JpaHibernateDemo.Entities.Category;
 import Recipe.JpaHibernateDemo.Entities.Ingredient;
 import Recipe.JpaHibernateDemo.Entities.Recipe;
 import Recipe.JpaHibernateDemo.Entities.UnitOfMeasure;
 import Recipe.JpaHibernateDemo.Repository.RecipeRepository;
+import Recipe.JpaHibernateDemo.Service.CategoryService;
 import Recipe.JpaHibernateDemo.Service.RecipeService;
 import Recipe.JpaHibernateDemo.Service.UnitOfMeasureService;
 @Controller
@@ -38,9 +42,13 @@ public class RecipeController {
 		this.recpie_service = recpie_service;
 	}
     
+    @Autowired
+    private CategoryEntityToCategoryCommand categoryConverter;
     //added UOM Service
     @Autowired
     private UnitOfMeasureService uomService; // to do, Add this to the constructor and unit tests
+    @Autowired
+    private CategoryService catService;// to do, Add this to the constructor and unit tests
 
 
 	@RequestMapping("/getRecipe")
@@ -65,6 +73,14 @@ public class RecipeController {
 		recipeCommand.setIngredients(new ArrayList<IngredientCommand>());
 		model.addAttribute("recipe", recipeCommand);
 		model.addAttribute("uomList",uomService.findAll());
+		
+		// Converting Category Entity to Category Command
+		
+		List<Category> catEntityList= catService.findAll();
+		
+		List<CategoryCommand> catCommandList = categoryConverter.converToCategoryCommandList(catEntityList);
+		
+		model.addAttribute("catList",catCommandList);
 		
 		return "NewRecipe";
 	}
