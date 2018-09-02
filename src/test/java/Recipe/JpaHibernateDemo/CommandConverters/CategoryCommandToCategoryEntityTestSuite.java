@@ -64,7 +64,7 @@ public class CategoryCommandToCategoryEntityTestSuite {
 		catcommSet.add(item2);
 		
 		catEntitySet= cctce.convertToCategoryList(catcommSet);
-		
+		/*
 		//Casting Set to List
 		List<Category> tempCatList = new ArrayList<Category>(catEntitySet);
 		//Sorting the List
@@ -74,6 +74,7 @@ public class CategoryCommandToCategoryEntityTestSuite {
 		//Sorting the List
 		tempCatCommandList=SortListCategoryCommand(tempCatCommandList);
 		//Comparing the Sorted List
+		
 		for (int i=0;i<catEntitySet.size();i++)
 		{
 			assertEquals(tempCatList.get(i).getId(),tempCatCommandList.get(i).getId());
@@ -81,6 +82,16 @@ public class CategoryCommandToCategoryEntityTestSuite {
 			
 			
 		}
+		
+		 */
+		for(int i=0;i<2;i++) {
+			
+			assertEquals(catEntitySet.get(i).getId(),catcommSet.get(i).getId());
+			assertEquals(catEntitySet.get(i).getDescription(),catcommSet.get(i).getDescription());
+			
+			
+		}
+		
 		
 		
 	
