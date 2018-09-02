@@ -84,7 +84,7 @@ public class RecipeController {
 		model.addAttribute("recipe", recipeCommand);
 		model.addAttribute("uomList",uomService.findAll());
 		model.addAttribute("catList",catCommandList);
-		
+	
 		return "NewRecipe";
 	}
 	

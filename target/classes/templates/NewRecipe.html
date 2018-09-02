@@ -88,9 +88,11 @@
 		
 			
 		<!-- New Ingredient Div Start-->
-		<div th:each="ingredient,iterStat : ${recipe.ingredients}">
-		
-		<div class="ingredientUnit">
+		<!-- To do, implement dynamic addition of javascript -->
+		<div id="IngredientsDiv" name="IngredientsDiv">
+		<div th:each="ingredient,iterStat : ${recipe.ingredients}" class="ingredientUnit">
+		<li id="li_10">
+			<label class="description" for="element_6" th:text="'Ingredient#' + ${iterStat.count}"> </label>
 			<span>Description</span>
 			<br></br>
 			<input th:field="*{ingredients[__${iterStat.index}__].description}" id="element_7" class="element text medium" type="text" maxlength="255" value=""/>
@@ -104,52 +106,16 @@
 			<select th:field="*{ingredients[__${iterStat.index}__].uom.id}">
 			<option th:each="unitOfMeasure : ${uomList}" th:text="${unitOfMeasure.description}" th:value="${unitOfMeasure.id}"></option>
 		  	</select>
-		  	</div>
-		
+			</li>
 		</div>
-		
-		
-		
-		
-		
-		
-		
-		
+		</div>
 		<!-- New Ingreident Div END-->
 		
 		
-	 
-		
-		
-		<!-- Ingredient Div Start -->
-		<!--  
-		// Add border and apply jquery to add more at runtime
-		<li id="li_7" >
-		<label class="description" for="element_7">Ingredients: </label>
-		<div name="IngredientDiv" id="IngredientDiv">
-			<div class="ingredientUnit">
-			<span>Description</span>
-			<br></br>
-			<input name="ingredients[0].description" id="element_7" class="element text medium" type="text" maxlength="255" value=""/>
-			<br></br>
-			<span >Amount</span>
-			<br></br>
-			<input name="ingredients[0].amount" type="number" id="element_7"/>
-			<br></br>
-			<span>Unit Of Measure</span>
-			<br></br>
-			<select name="ingredients[0].uom.id">
-			<option th:each="unitOfMeasure : ${uomList}" th:text="${unitOfMeasure.description}" th:value="${unitOfMeasure.id}"></option>
-		  	</select>
-		  	</div>
-			
-			
-		</div> 
-		</li>	
-		-->
-		
-		<!-- Ingredient Div End -->
-		
+		 <li id="li_10">
+		 <button class="button_text" id="addIngredientButon" type="button">Add More Ingredients</button>
+		 
+		 </li>
 		
 		<li id="li_10" >
 		<label class="description" for="element_9">Description </label>
