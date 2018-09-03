@@ -36,6 +36,7 @@ public class CategoryCommandToCategoryEntityTestSuite {
 		catCommand.setDescription("Test Description");
 		catCommand.setId(1L);
 		
+		
 	}
 	
 	@Test
@@ -48,6 +49,7 @@ public class CategoryCommandToCategoryEntityTestSuite {
 	}
 	@Test
 	public void TestConvertSetMethod() {
+		List<Category> catEntitySet2 = new ArrayList<Category>();
 		List<CategoryCommand> catcommSet = new ArrayList<CategoryCommand>();	
 		CategoryCommand item1 = new CategoryCommand();
 		item1.setId(1L);
@@ -59,12 +61,14 @@ public class CategoryCommandToCategoryEntityTestSuite {
 		catcommSet.add(item1);
 		catcommSet.add(item2);
 		
-		catEntitySet= cctce.convertToCategoryList(catcommSet);
+		catEntitySet2= cctce.convertToCategoryList(catcommSet);
 	
 		for(int i=0;i<2;i++) {
 			
-			assertEquals(catEntitySet.get(i).getId(),catcommSet.get(i).getId());
-			assertEquals(catEntitySet.get(i).getDescription(),catcommSet.get(i).getDescription());
+			
+			assertEquals(catEntitySet2.get(i).getId(),catcommSet.get(i).getId());
+			assertEquals(catEntitySet2.get(i).getDescription(),catcommSet.get(i).getDescription());
+			
 			
 			
 		}

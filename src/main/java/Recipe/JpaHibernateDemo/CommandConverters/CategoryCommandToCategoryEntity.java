@@ -13,7 +13,7 @@ import Recipe.JpaHibernateDemo.Entities.Category;
 @Component
 public class CategoryCommandToCategoryEntity implements Converter<CategoryCommand, Category>{
 	private Category categoryEntity;
-	private List<Category> categoryEntityList = new ArrayList<Category>();
+	private List<Category> categoryEntityList;
 	@Override
 	public Category convert(CategoryCommand categoryCommand) {
 		if(categoryCommand==null)
@@ -25,6 +25,7 @@ public class CategoryCommandToCategoryEntity implements Converter<CategoryComman
 	}
 	//Method for converting List of CategoryCommands to List of Category Entities
 	public List<Category> convertToCategoryList(List<CategoryCommand> list) {
+		categoryEntityList = new ArrayList<Category>();
 		if(list==null)
 		{return null;}
 		for(CategoryCommand cc: list) {
