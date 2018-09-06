@@ -5,6 +5,7 @@
 <title>Add New Recipe</title>
 <link rel="stylesheet" type="text/css" href="view.css" media="all">
 <script type="text/javascript" src="view.js"></script>
+<script type="text/javascript" src="Ingredient.js"></script>
 
 </head>
 <body id="main_body" >
@@ -92,18 +93,18 @@
 		<div id="IngredientsDiv" name="IngredientsDiv">
 		<div th:each="ingredient,iterStat : ${recipe.ingredients}" class="ingredientUnit">
 		<li id="li_10">
-			<label class="description" for="element_6" th:text="'Ingredient#' + ${iterStat.count}"> </label>
+			<label class="ing_label description" for="element_6" th:text="'Ingredient#' + ${iterStat.count}"> </label>
 			<span>Description</span>
 			<br></br>
-			<input th:field="*{ingredients[__${iterStat.index}__].description}" id="ing_desc" class="element text medium" type="text" maxlength="255" value=""/>
+			<input th:field="*{ingredients[__${iterStat.index}__].description}" class="element text medium ing_desc" type="text" maxlength="255" value=""/>
 			<br></br>
 			<span >Amount</span>
 			<br></br>
-			<input th:field="*{ingredients[__${iterStat.index}__].amount}" type="number" id="ing_amount"/>
+			<input th:field="*{ingredients[__${iterStat.index}__].amount}" type="number" class ="ing_amount"/>
 			<br></br>
 			<span>Unit Of Measure</span>
 			<br></br>
-			<select th:field="*{ingredients[__${iterStat.index}__].uom.id}" id="ing_uom">
+			<select th:field="*{ingredients[__${iterStat.index}__].uom.id}" class="ing_uom">
 			<option th:each="unitOfMeasure : ${uomList}" th:text="${unitOfMeasure.description}" th:value="${unitOfMeasure.id}"></option>
 		  	</select>
 			</li>
@@ -113,7 +114,7 @@
 		
 		
 		 <li id="li_10">
-		 <button class="button_text" id="addIngredientButon" type="button">Add More Ingredients</button>
+		 <button class="button_text" id="addIngredientButon" type="button" onclick="addIngredient()">Add More Ingredients</button>
 		 
 		 </li>
 		
