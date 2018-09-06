@@ -95,15 +95,15 @@
 			<label class="description" for="element_6" th:text="'Ingredient#' + ${iterStat.count}"> </label>
 			<span>Description</span>
 			<br></br>
-			<input th:field="*{ingredients[__${iterStat.index}__].description}" id="element_7" class="element text medium" type="text" maxlength="255" value=""/>
+			<input th:field="*{ingredients[__${iterStat.index}__].description}" id="ing_desc" class="element text medium" type="text" maxlength="255" value=""/>
 			<br></br>
 			<span >Amount</span>
 			<br></br>
-			<input th:field="*{ingredients[__${iterStat.index}__].amount}" type="number" id="element_7"/>
+			<input th:field="*{ingredients[__${iterStat.index}__].amount}" type="number" id="ing_amount"/>
 			<br></br>
 			<span>Unit Of Measure</span>
 			<br></br>
-			<select th:field="*{ingredients[__${iterStat.index}__].uom.id}">
+			<select th:field="*{ingredients[__${iterStat.index}__].uom.id}" id="ing_uom">
 			<option th:each="unitOfMeasure : ${uomList}" th:text="${unitOfMeasure.description}" th:value="${unitOfMeasure.id}"></option>
 		  	</select>
 			</li>
