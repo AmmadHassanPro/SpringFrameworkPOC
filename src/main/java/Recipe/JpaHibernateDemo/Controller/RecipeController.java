@@ -91,6 +91,23 @@ public class RecipeController {
 	@PostMapping
 	@RequestMapping("/saveOrUpdateRecipe")
 	public String saveOrUpdateRecipe(@ModelAttribute RecipeCommand recipeCommand) {
+		// Fixing the bug of getting the empty Category Objects
+		//start
+		List<CategoryCommand> resultCatCommandList = new ArrayList<CategoryCommand>();
+		List<CategoryCommand> catCommandList = recipeCommand.getCategories();
+		for(int i=0;i<catCommandList.size();i++) {
+			CategoryCommand currentCatCommandObject;
+			currentCatCommandObject =catCommandList.get(i);
+			if(currentCatCommandObject.getId()==null || currentCatCommandObject.getId()==0) {
+				
+			}
+			else {
+				resultCatCommandList.add(currentCatCommandObject);
+			}
+		}
+		recipeCommand.setCategories(resultCatCommandList);
+		//end
+		
 		Recipe recipeEntity= recipeCon.convert(recipeCommand);
 		this.recpie_service.save(recipeEntity);
 	
