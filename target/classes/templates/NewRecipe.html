@@ -1,151 +1,133 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
 <title>Add New Recipe</title>
-<link rel="stylesheet" type="text/css" href="view.css" media="all">
-<script type="text/javascript" src="view.js"></script>
-<script type="text/javascript" src="Ingredient.js"></script>
+
+
+
+<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="custom.css">
+
+    <title>Add New Recipe</title>
+
 
 </head>
-<body id="main_body" >
-	
-	<img id="top" src="top.png" alt="">
-	<div id="form_container">
-	
-		<h1><a>Add New Recipe</a></h1>
+<body class="customized-body" >
+
+	<div class="container main-container">
 		<form th:object="${recipe}" th:action="@{/saveOrUpdateRecipe}" id="form_59928" class="appnitro" >
-						<input type="hidden" th:field="*{id}" value="5"/>
-				
-					
-					<div class="form_description">
-					
-			<h2>Add New Recipe</h2>
-			<p>Use the form below to add new Recipe. </p>
-		</div>						
-			<ul >
-			
-		<li id="li_2" >
-		<label class="description" for="element_1">Recipe Name </label>
-		<div>
-			<input th:field="*{name}" id="element_1" name="element_1" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>	
-			<li id="li_4" >
-		<label class="description" for="element_4">Category </label>
-		<div>
-		<fieldset>
-			
-		<!--  	<input type="checkbox" th:each="Category : ${catList}" th:text="${Category.description}" th:value="${Category.id}" th:field="*{categories[Category.id]}" />  -->
-		
-		<input type="checkbox" th:each="Category,iterStat : ${catList}" th:text="${Category.description}" th:value="${Category.id}" th:field="*{categories[__${iterStat.index}__].id}" />			
+		<input type="hidden" th:field="*{id}" value="5"/>
+
+
+		    <div class="container main-container">
+      <div class="row title-bar">
+        <b class="offset-md-2">Add New Recipe</b>
+      </div>
+
+
+      <div class="row">
+
+    <div class="col-md-8 offset-md-2">
+      <div class="form-group">
+        <label for="name">Recipe Name </label>
+			<input id ="name" th:field="*{name}" class="form-control" name="name" type="text" maxlength="255" value=""/>
+
+
+        <label for="cat">Category </label>
+
+        <fieldset id ="cat" class="form-control">
+    <input type="checkbox" th:each="Category,iterStat : ${catList}" th:text="${Category.description}" th:value="${Category.id}" th:field="*{categories[__${iterStat.index}__].id}" />
+
 		</fieldset>
-		</div> 
-		</li>	
-		
-		<li id="li_3" >
-		<label class="description" for="element_3">Prep Time (Minutes) </label>
-		<div> <!--  to Do -->
-			<input th:field="*{prepTime}" id="element_3" name="element_3" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>		
-		
-		<li id="li_5" >
-		<label class="description" for="element_4">Cook Time (Minutes) </label>
+
+    <label for="prep_time">Prep Time (Minutes)</label>
+    <input id="prep_time" th:field="*{prepTime}" type="number" min="0" class="form-control" name="prepTime" value=""/>
+
+    <label for="cookTime">Cook Time (Minutes) </label>
+    <input id="cookTime" th:field="*{cookTime}" type="number" min="0" class="form-control" name="cookTime" value=""/>
+
+    <label for="CookTime">Servings </label>
+    <input id="CookTime" th:field="*{servings}" type="number" min="0" class="form-control" name="servings" value=""/>
+
+    <label for="source">Source </label>
+    <input id="source" th:field="*{source}" class="form-control" name="source" type="text" maxlength="255" value=""/>
+
+    <label for="image">Image Url </label>
+    <input id="image" th:field="*{url}" class="form-control" name="url" type="text" maxlength="255" value=""/>
+
+    <label for="difficulty">Difficulty </label>
 		<div>
-			<input th:field="*{cookTime}" id="element_4" name="element_4" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>		
-		<li id="li_6" >
-		<label class="description" for="element_5">Servings </label>
-		<div>
-			<input th:field="*{servings}" id="element_5" name="element_5" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>		
-		<li id="li_7" >
-		<label class="description" for="element_6">Source </label>
-		<div>
-			<input th:field="*{source}" id="element_6" name="element_6" class="element text medium" type="text" maxlength="255" value=""/> 
-		</div> 
-		</li>		
-		<li id="li_8" >
-		<label class="description" for="element_7">Image Url </label>
-		<div>
-			<input th:field="*{url}" id="element_7" name="element_7" class="element text medium" type="text" maxlength="255" value="http://"/> 
-		</div> 
-		</li>		
-		<li id="li_9" >
-		<label class="description" for="element_8">Difficulty </label>
-		<div>
-			<select th:field="*{difficulty}">
-			<option th:value="EASY" th:text="EASY"></option>
-			<option th:value="HARD" th:text="HARD"></option>
-		  	<option th:value="KIND_OF_HARD">Kind Of Hard</option> 
-			<option th:value="Moderate" th:text="Moderate"></option>
+			<select id="difficulty" name="difficulty" class="form-control">
+			<option value="EASY">EASY</option>
+			<option value="HARD">HARD</option>
+		  	<option value="KIND_OF_HARD">Kind Of Hard</option>
+			<option value="Moderate">Moderate</option>
 			</select>
-		</div> 
-		</li>
-		
-		
-			
-		<!-- New Ingredient Div Start-->
-		<!-- To do, implement dynamic addition of javascript -->
-		<div id="IngredientsDiv" name="IngredientsDiv">
-		<div th:each="ingredient,iterStat : ${recipe.ingredients}" class="ingredientUnit">
-		<li id="li_10">
-			<label class="ing_label description" for="element_6" th:text="'Ingredient#' + ${iterStat.count}"> </label>
-			<span>Description</span>
-			<br></br>
-			<input th:field="*{ingredients[__${iterStat.index}__].description}" class="element text medium ing_desc" type="text" maxlength="255" value=""/>
-			<br></br>
-			<span >Amount</span>
-			<br></br>
-			<input th:field="*{ingredients[__${iterStat.index}__].amount}" type="number" class ="ing_amount"/>
-			<br></br>
-			<span>Unit Of Measure</span>
-			<br></br>
-			<select th:field="*{ingredients[__${iterStat.index}__].uom.id}" class="ing_uom">
-			<option th:each="unitOfMeasure : ${uomList}" th:text="${unitOfMeasure.description}" th:value="${unitOfMeasure.id}"></option>
-		  	</select>
-			</li>
 		</div>
+
 		</div>
-		<!-- New Ingreident Div END-->
-		
-		
-		 <li id="li_10">
-		 <button class="button_text" id="addIngredientButon" type="button" onclick="addIngredient()">Add More Ingredients</button>
-		 
-		 </li>
-		
-		<li id="li_10" >
-		<label class="description" for="element_9">Description </label>
-		<div>
-			<textarea th:field="*{description}" id="element_9" name="element_9" class="element textarea medium"></textarea> 
-		</div> 
-		</li>		
-		<li id="li_11" >
-		<label class="description" for="element_10">Direction </label>
-		<div>
-			<textarea th:field="*{directions}" id="element_10" name="element_10" class="element textarea medium"></textarea> 
-		</div> 
-		</li>
-		<li id="li_12" >
-		<label class="description" for="element_11">Notes </label>
-		<div>
-			<textarea th:field="*{recipeNotes.recipeNotes}" id="element_11" name="element_11" class="element textarea medium"></textarea> 
-		</div> 
-		</li>
-			
-					<li class="buttons">
-			    <input type="hidden" name="form_id" value="59928" />
-			    
-				<input id="saveForm" class="button_text" type="submit" name="submit" value="Submit" />
-		</li>
-			</ul>
-		</form>	
-		
+
+        </div>
+        </div>
+  <div class="row">
+<div class="col-md-8 offset-md-2">
+
+
+  <div id="IngredientsDiv" name="IngredientsDiv">
+  		<div th:each="ingredient,iterStat : ${recipe.ingredients}" class="ingredientUnit">
+
+  			<label class="ing_label description lead" for="element_6" th:text="'Ingredient#' + ${iterStat.count}"> </label>
+  			<label for="desc">Description</label>
+  			<input id="desc" th:field="*{ingredients[__${iterStat.index}__].description}" class="form-control ing_desc" type="text" maxlength="255" value=""/>
+  			<label for="amount">Amount</label>
+  			<input id="amount" th:field="*{ingredients[__${iterStat.index}__].amount}" type="number" class ="form-control ing_amount"/>
+  			<label for="uom" >Unit Of Measure</label>
+  			<select id="uom" th:field="*{ingredients[__${iterStat.index}__].uom.id}" class="ing_uom form-control">
+  			<option th:each="unitOfMeasure : ${uomList}" th:text="${unitOfMeasure.description}" th:value="${unitOfMeasure.id}"></option>
+  		  	</select>
+
+  		</div>
+  		</div>
+<button class="btn btn-primary" id="addIngredientButon" type="button" onclick="addIngredient()">Add More Ingredients</button>
+</div>
+  </div>
+<div class="row">
+<div class="col-md-8 offset-md-2">
+  <div class="form-group">
+    <br>
+    		<label for="desc">Recipe Description </label>
+    			<textarea th:field="*{description}" id="desc" class="form-control" rows="3" cols="100"></textarea>
+
+          <label for="dir">Recipe Directions </label>
+      			<textarea th:field="*{directions}" id="dir" class="form-control" rows="30" cols="100"></textarea>
+
+    		<label for="notes">Notes </label>
+    			<textarea th:field="*{recipeNotes.recipeNotes}" id="notes" class="form-control" rows="3" cols="100"></textarea>
+          <br>
+
+    				<button id="saveForm" class="btn btn-secondary" type="submit" name="submit">Submit</button>
+
+
+  </div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+
+		</form>
+
 	</div>
-	<img id="bottom" src="bottom.png" alt="">
+
+
+
+	<script type="text/javascript" src="/Ingredient.js"></script>
+	   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
 	</body>
 </html>

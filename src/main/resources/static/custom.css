@@ -1,0 +1,27 @@
+.main-container{
+
+  background-color: #FFFFFF;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 40px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 10px 10px 0 0;
+  border: 1px solid red;
+
+
+}
+
+.customized-body{
+margin-top: 10px;
+margin-bottom: 10px;
+background-image: url("pattern2.jpg");
+background-repeat: repeat-y repeat-x;
+
+
+
+}
+.title-bar{
+  background-color: #FE7E7E;
+  height: 35px;
+  padding-left: 1%;
+  border-radius: 10px 10px 0 0;
+  color: white; /* Text Color */
+
+}
