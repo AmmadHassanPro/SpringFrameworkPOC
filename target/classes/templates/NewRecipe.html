@@ -16,7 +16,8 @@
 
 </head>
 <body class="customized-body" >
-
+<div th:replace="/fragments/header :: header">
+</div>
 	<div class="container main-container">
 		<form th:object="${recipe}" th:action="@{/saveOrUpdateRecipe}" onsubmit="return validateForm()">
 		<input type="hidden" th:field="*{id}" value="5"/>
