@@ -4,13 +4,12 @@
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 40px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px 10px 0 0;
   border: 1px solid red;
+  margin-top:10px;
 
 
 }
 
 .customized-body{
-margin-top: 10px;
-margin-bottom: 10px;
 background-image: url("pattern2.jpg");
 background-repeat: repeat-y repeat-x;
 
