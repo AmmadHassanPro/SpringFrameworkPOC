@@ -35,9 +35,9 @@
 
     <div class="carousel-item">
     <div class="row">
-    <div th:each="Recipe,iter : ${Recipes}" class="col-md-4" th:with="result=${(iter.count) % 3}" th:switch="${result}">
+    <div th:each="Recipe,iter : ${Recipes}" class="col-md-4" style="padding-left:0px !important ; padding-right:0px !important" th:with="result=${(iter.count) % 3}" th:switch="${result}">
     <img th:src="@{'data:image/jpeg;base64,'+*{T(org.apache.tomcat.util.codec.binary.Base64).encodeBase64String(Recipe.Image)}}" class="d-block w-100" >
-      <div class="carousel-caption d-md-block">
+      <div class="carousel-caption d-md-block" style="padding-top:0px !important; padding-bottom:0px !important; right:0% !important;left:0% !important;background:rgba(0,0,0,0.45) !important">
     <h5 th:utext="${Recipe.name}"></h5>
      <th:block  th:utext="${(result == 0 && iter.count!=iter.size) ? '&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;div class=&quot;carousel-item&quot;&gt; &lt;div class=&quot;row&quot;&gt;&lt;div&gt;&lt;div&gt;' : ''}"   />
     </div>

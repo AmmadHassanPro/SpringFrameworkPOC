@@ -24,3 +24,9 @@ background-repeat: repeat-y repeat-x;
   color: white; /* Text Color */
 
 }
+
+.customized-column{
+	position: relative;
+    width: 100%;
+    min-height: 1px;
+}
