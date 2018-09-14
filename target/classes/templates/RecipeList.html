@@ -39,7 +39,7 @@
     <img th:src="@{'data:image/jpeg;base64,'+*{T(org.apache.tomcat.util.codec.binary.Base64).encodeBase64String(Recipe.Image)}}" class="d-block w-100" >
       <div class="carousel-caption d-md-block">
     <h5 th:utext="${Recipe.name}"></h5>
-     <th:block  th:utext="${result == 0 ? '&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;div class=&quot;carousel-item&quot;&gt; &lt;div class=&quot;row&quot;&gt;&lt;div&gt;&lt;div&gt;' : ''}"   />
+     <th:block  th:utext="${(result == 0 && iter.count!=iter.size) ? '&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;div class=&quot;carousel-item&quot;&gt; &lt;div class=&quot;row&quot;&gt;&lt;div&gt;&lt;div&gt;' : ''}"   />
     </div>
     </div>
     </div>
