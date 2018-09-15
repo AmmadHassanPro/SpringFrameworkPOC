@@ -3,8 +3,7 @@
   background-color: #FFFFFF;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 40px 0 rgba(0, 0, 0, 0.19);
   border-radius: 10px 10px 0 0;
-  border: 1px solid red;
-  margin-top:10px;
+ 
 
 
 }
@@ -12,6 +11,7 @@
 .customized-body{
 background-image: url("pattern2.jpg");
 background-repeat: repeat-y repeat-x;
+font-family: 'Montserrat', sans-serif;
 
 
 
@@ -50,4 +50,19 @@ background-repeat: repeat-y repeat-x;
   overflow-x: scroll;
   overflow-y: hidden;
   white-space: nowrap;
+}
+
+.categories-button{
+	
+	background-color: #FE7E7E; /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50%;
 }

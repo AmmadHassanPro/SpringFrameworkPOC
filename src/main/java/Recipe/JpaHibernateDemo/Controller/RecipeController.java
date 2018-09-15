@@ -55,7 +55,9 @@ public class RecipeController {
 	@RequestMapping("/getRecipe")
 	public String getRecipeList(Model model) {
     	this.recipe_list =  this.recpie_service.findAll();
+    	List<Category> catList= catService.findAll();
 		model.addAttribute("Recipes",this.recipe_list);
+		model.addAttribute("Categories",catList);
 		return "RecipeList";
 		}
 	
