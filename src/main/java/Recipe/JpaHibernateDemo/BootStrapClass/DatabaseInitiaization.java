@@ -29,6 +29,38 @@ public class DatabaseInitiaization implements ApplicationListener<ContextRefresh
 	}
 
 		private void initData() {
+			
+			
+			Category cat = new Category();
+			cat.setDescription("Seafood");
+			cat_service.save(cat);
+			
+			cat = new Category();
+			cat.setDescription("Desert");
+			cat_service.save(cat);
+			
+			cat = new Category();
+			cat.setDescription("Vegan");
+			cat_service.save(cat);
+			
+			cat = new Category();
+			cat.setDescription("Salad");
+			cat_service.save(cat);
+			
+			cat = new Category();
+			cat.setDescription("Sweet");
+			cat_service.save(cat);
+			
+			cat = new Category();
+			cat.setDescription("Sandwhich");
+			cat_service.save(cat);
+			
+			cat = new Category();
+			cat.setDescription("Low Fat");
+			cat_service.save(cat);
+			
+			
+			
 			/*
 			Category cat = new Category();
 			cat.setDescription("American");
