@@ -42,7 +42,7 @@
         <label id="cat_label" for="cat">Category </label>
 
         <fieldset id ="cat" class="customized-form-control" >
-    <input type="checkbox" th:each="Category,iterStat : ${catList}" th:text="${Category.description}" th:value="${Category.id}" th:field="*{categories[__${iterStat.index}__].id}" />
+    <input type="checkbox" th:each="Category,iterStat : ${catList}" th:text="${Category.description}" th:value="${Category.id}" th:field="*{categories[__${iterStat.index}__].id}" style="margin-left:5px"/>
 
 		</fieldset>
 
