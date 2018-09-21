@@ -394,6 +394,99 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		recipe_repo.save(generalRecipe);		
 		
 		
+		initialization();
+		
+		
+		
+		generalRecipe.setName("Healthy roast chicken");
+		generalRecipe.setCookTime(15);
+		generalRecipe.setPrepTime(20);
+		generalRecipe.setUrl("https://www.kidspot.com.au/kitchen/recipes/healthy-roast-chicken-1661");
+		generalRecipe.setSource("https://www.kidspot.com.au/");
+		generalRecipe.setServings(5);
+		generalRecipe.setDescription("\r\n" + 
+				"This healthy roast chicken is stuffed with sage and lemon stuffing and cooked in an oven bag to keep it moist. Pop it in the oven with the vegies to roast for a healthy meal.\r\n" + 
+			
+				"");
+		generalRecipe.setDirections("<b>1</b> Preheat oven to 180°C.<br>" + 
+				
+				"<b>2</b> Fill the chicken with the stuffing.<br>" + 
+				 
+				 
+				"<b>3</b> Spray chicken with canola spray and sprinkle with all-purpose seasoning.<br>" + 
+				
+				"<b>4</b> Place inside an oven bag and add the flour to the bag.<br>" +  
+				 
+				"<b>5</b> Seal the bag and shake and rotate it to coat the chicken in the flour." +
+				"<b>6</b> Place on a baking tray and pierce 2-3 small holes on top near the tie.\r\n" 
+		+ "<b>7</b> Cook for 22 minutes per 500g of chicken, which is about 1 hour and 15 minutes for this chicken."
+				);
+		
+		generalNotes.setRecipeNotes("A good way to test if a chicken is done is to pierce the thickest part of the thigh with a skewer to see if the juices are clear which means it is cooked.");
+		generalNotes.setRecipe(generalRecipe);
+		generalRecipe.setRecipeNotes(generalNotes);
+		generalCat = cat_service.findByDescription("Fast Food");
+		cat_set = new ArrayList<Category>();
+		cat_set.add(generalCat);	
+		generalRecipe.setCategories(cat_set);
+		recipe_set = new HashSet<Recipe>();		
+		recipe_set.add(generalRecipe);
+		generalRecipe.setDifficulty(generalDifficulty.MODERATE);
+
+
+		//Adding Ingredients
+		ingredients_set = new ArrayList<Ingredient>();
+		// Ingredient 1
+		generalIngredient.setDescription("Chicken Meat");
+		generalIngredient.setAmount(new BigDecimal("1.00"));
+		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalIngredient.setUom(generalUnitofMeasure);
+		generalIngredient.setRecipes(generalRecipe);
+		ingredients_set.add(generalIngredient);
+		
+		//Ingredient 2
+		generalIngredient=new Ingredient();
+		generalIngredient.setDescription("Sage Stuffing");
+		generalIngredient.setAmount(new BigDecimal("1"));
+		generalIngredient.setRecipes(generalRecipe);
+		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalIngredient.setUom(generalUnitofMeasure);
+		ingredients_set.add(generalIngredient);
+		
+		//Ingredient 3
+		generalIngredient=new Ingredient();
+		generalIngredient.setDescription("Flour");
+		generalIngredient.setAmount(new BigDecimal("1.0"));
+		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalIngredient.setUom(generalUnitofMeasure);
+		generalIngredient.setRecipes(generalRecipe);
+		ingredients_set.add(generalIngredient);
+		
+		//Ingredient 4
+		generalIngredient=new Ingredient();
+		generalIngredient.setDescription("Lemon Stuffing");
+		generalIngredient.setAmount(new BigDecimal("1.0"));
+		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalIngredient.setUom(generalUnitofMeasure);
+		generalIngredient.setRecipes(generalRecipe);
+		ingredients_set.add(generalIngredient);
+		
+		//Ingredient 5
+		generalIngredient=new Ingredient();
+		generalIngredient.setDescription("Canola Spray");
+		generalIngredient.setAmount(new BigDecimal("1.0"));
+		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalIngredient.setRecipes(generalRecipe);
+		ingredients_set.add(generalIngredient);
+		
+		
+		
+		generalRecipe.setIngredients(ingredients_set);
+		generalRecipe.setImage(byteArrayConverter.ConvertToByteArray("https://static.kidspot.com.au/recipe_asset/572/3239.jpg-20150309012046~q75,dx720y432u1r1gg,c--.jpg"));
+		recipe_repo.save(generalRecipe);	
+		
+		
+		
 	}
 
 	
