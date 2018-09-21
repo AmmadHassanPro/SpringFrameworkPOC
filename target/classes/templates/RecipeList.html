@@ -70,7 +70,7 @@
      <div class="col-md-3" th:each="Recipe : ${Recipes}">
      <div>
      <img class="d-block w-100" th:src="@{'data:image/jpeg;base64,'+*{T(org.apache.tomcat.util.codec.binary.Base64).encodeBase64String(Recipe.Image)}}" />
-     <p style="font-family: 'Roboto Condensed', sans-serif; font-size:15px;" th:text="${#strings.substring(Recipe.description,0,100)}+ '...'"></p>
+     <p style="font-family: 'Roboto Condensed', sans-serif; font-size:15px;" th:text="${ (#strings.length(Recipe.description) > 100) ? (#strings.substring(Recipe.description,0,100)+ '...') : Recipe.description}"   ></p>
      
      </div>
      
