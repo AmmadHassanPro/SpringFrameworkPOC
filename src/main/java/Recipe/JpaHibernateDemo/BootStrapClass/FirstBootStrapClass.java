@@ -487,6 +487,88 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		
 		
 		
+		initialization();
+		
+		
+		generalRecipe.setName("One Pot Thai-Style Rice Noodles");
+		generalRecipe.setCookTime(15);
+		generalRecipe.setPrepTime(20);
+		generalRecipe.setUrl("https://www.allrecipes.com/recipe/232279/one-pot-thai-style-rice-noodles/?internalSource=staff%20pick&referringId=1947&referringContentType=Recipe%20Hub");
+		generalRecipe.setSource("www.allrecipes.com/");
+		generalRecipe.setServings(5);
+		generalRecipe.setDescription("\r\n" + 
+				"Chicken, vegetables, and noodles prepared in a light tasting but full-flavored Asian-inspired sauce");
+		generalRecipe.setDirections("<b>1</b> Stir cornstarch and water together in a small bowl until smooth. Pour chicken broth into a large pot and stir cornstarch mixture, soy sauce, fish sauce, rice vinegar, chile-garlic sauce, vegetable oil, ginger, garlic, and coriander into broth. Cover and bring to a boil.<br>" + 
+				
+				"<b>2</b> Place rice noodles in the boiling sauce, reduce heat to medium, and simmer until noodles are tender, 5 to 10 minutes. Stir zucchini, red bell pepper, and chicken into sauce. Bring back to a boil, cover, and simmer until vegetables are just become tender, about 5 more minutes.<br>" + 
+				 
+				 
+				"<b>3</b> Remove from heat and let stand, covered, for 5 minutes to thicken. Serve garnished with crushed peanuts and cilantro.<br>" );
+		
+		generalNotes.setRecipeNotes("I often use frozen mixed vegetables in a pinch for an even quicker meal.");
+		generalNotes.setRecipe(generalRecipe);
+		generalRecipe.setRecipeNotes(generalNotes);
+		generalCat = cat_service.findByDescription("Fast Food");
+		cat_set = new ArrayList<Category>();
+		cat_set.add(generalCat);	
+		generalRecipe.setCategories(cat_set);
+		recipe_set = new HashSet<Recipe>();		
+		recipe_set.add(generalRecipe);
+		generalRecipe.setDifficulty(generalDifficulty.MODERATE);
+
+
+		//Adding Ingredients
+		ingredients_set = new ArrayList<Ingredient>();
+		// Ingredient 1
+		generalIngredient.setDescription("Chicken Meat");
+		generalIngredient.setAmount(new BigDecimal("1.00"));
+		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalIngredient.setUom(generalUnitofMeasure);
+		generalIngredient.setRecipes(generalRecipe);
+		ingredients_set.add(generalIngredient);
+		
+		//Ingredient 2
+		generalIngredient=new Ingredient();
+		generalIngredient.setDescription("Sage Stuffing");
+		generalIngredient.setAmount(new BigDecimal("1"));
+		generalIngredient.setRecipes(generalRecipe);
+		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalIngredient.setUom(generalUnitofMeasure);
+		ingredients_set.add(generalIngredient);
+		
+		//Ingredient 3
+		generalIngredient=new Ingredient();
+		generalIngredient.setDescription("Flour");
+		generalIngredient.setAmount(new BigDecimal("1.0"));
+		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalIngredient.setUom(generalUnitofMeasure);
+		generalIngredient.setRecipes(generalRecipe);
+		ingredients_set.add(generalIngredient);
+		
+		//Ingredient 4
+		generalIngredient=new Ingredient();
+		generalIngredient.setDescription("Lemon Stuffing");
+		generalIngredient.setAmount(new BigDecimal("1.0"));
+		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalIngredient.setUom(generalUnitofMeasure);
+		generalIngredient.setRecipes(generalRecipe);
+		ingredients_set.add(generalIngredient);
+		
+		//Ingredient 5
+		generalIngredient=new Ingredient();
+		generalIngredient.setDescription("Canola Spray");
+		generalIngredient.setAmount(new BigDecimal("1.0"));
+		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalIngredient.setRecipes(generalRecipe);
+		ingredients_set.add(generalIngredient);
+		
+		
+		
+		generalRecipe.setIngredients(ingredients_set);
+		generalRecipe.setImage(byteArrayConverter.ConvertToByteArray("https://images.media-allrecipes.com/userphotos/560x315/2458255.jpg"));
+		recipe_repo.save(generalRecipe);	
+		
+		
 	}
 
 	

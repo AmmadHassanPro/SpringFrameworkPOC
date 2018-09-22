@@ -66,7 +66,7 @@
      </div>
 
      
-      <div class="row">
+      <div class="row" style="margin-top:10px">
      <div class="col-md-3" th:each="Recipe : ${Recipes}">
      <div>
      <img class="d-block w-100" th:src="@{'data:image/jpeg;base64,'+*{T(org.apache.tomcat.util.codec.binary.Base64).encodeBase64String(Recipe.Image)}}" />
