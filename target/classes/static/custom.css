@@ -11,7 +11,7 @@
 .customized-body{
 background-image: url("pattern2.jpg");
 background-repeat: repeat-y repeat-x;
-font-family: 'Montserrat', sans-serif;
+font-family: 'Roboto Condensed', sans-serif;
 
 
 
@@ -70,4 +70,11 @@ font-family: 'Montserrat', sans-serif;
 p.item-description-recipe{
 	font-family: 'Roboto Condensed', sans-serif !important;
 	font-size:15px !important;
+}
+
+.font-change{
+	font-family: 'Roboto Condensed', sans-serif !important;
+}
+.margin-left-elements{
+	margin-left:10px !important;
 }

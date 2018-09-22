@@ -77,6 +77,7 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		//Guacamole recipe
 		generalRecipe.setName("Perfect Guacamole");
 		generalRecipe.setCookTime(10);
+		generalRecipe.setPrepTime(5);
 		
 		generalRecipe.setUrl("http://www.simplyrecipes.com/recipes/perfect_guacamole/print/");
 		generalRecipe.setSource("http://www.simplyrecipes.com");
