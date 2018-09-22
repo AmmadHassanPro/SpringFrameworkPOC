@@ -27,13 +27,61 @@
 	<img th:src="@{'data:image/jpeg;base64,'+*{T(org.apache.tomcat.util.codec.binary.Base64).encodeBase64String(Recipe.Image)}}" class="d-block w-100"/>
 	</div>
 	<div class="col-md-6">
+	
 	<div class="row">
 	<b>Prep Time: </b><p th:text="${Recipe.prepTime}"></p>
 	<b class="margin-left-elements">Cook Time: </b><p th:text="${Recipe.cookTime}"></p>
 	<b class="margin-left-elements">Difficulty: </b><p th:text="${Recipe.difficulty}"></p>
 	<b class="margin-left-elements">Servings: </b><p th:text="${Recipe.servings}"></p>
-	
 	</div>
+
+	<div class="row">
+	<b>Source:</b>
+	<p th:text="${Recipe.source}"></p>
+	</div>
+	
+	<div class="row">
+	<b>Description</b>
+	<p th:text="${Recipe.description}"></p>
+	</div>
+	
+	
+	<div class="row">
+	<b>Notes</b>
+	<p th:text="${Recipe.recipeNotes.recipeNotes}"></p>
+	</div>
+	</div>
+	</div>
+	
+	<div class="col-md-12">
+	<div class="row">
+	<b>Ingredients</b>
+	</div>
+	<div class="row">
+	<ul class="col-md-6">
+	
+	<li th:each="Ingredient,iter : ${Recipe.ingredients}"  th:if="${iter.even}">
+	<span th:text="${Ingredient.amount}"></span>
+	<span th:text="${(Ingredient.uom == null || Ingredient.uom.description=='')? '':Ingredient.uom.description}"></span>
+	<span th:text="${Ingredient.description}"></span>
+	</li>
+	
+	</ul>
+	
+	<ul class="col-md-6">
+	<li th:each="Ingredient,iter : ${Recipe.ingredients}" th:if="${iter.odd}">
+	<span th:text="${Ingredient.amount}"></span>
+	<span th:text="${(Ingredient.uom == null || Ingredient.uom.description=='')? '':Ingredient.uom.description}"></span>
+	<span th:text="${Ingredient.description}"></span>
+	</li>
+	
+	</ul>
+	</div>
+	</div>
+	
+	<div class="col-md-12">
+	<div class="row"><b>Directions</b></div>
+	<div class="row"><p  th:utext="${Recipe.directions}"></p></div>
 	
 	</div>
 
