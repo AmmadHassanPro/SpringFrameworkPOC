@@ -20,6 +20,12 @@
 <div th:replace="/fragments/header :: header">
 </div>
 <div class="container main-container ">
+<div class="row pt-2">
+<div class="col-md-4">
+<h4 th:text="${HeadingText}" style="color:#FE7E7E"></h4>
+</div>
+</div>
+
 <!--/* Row for each result */-->
 <div class="row pt-2" th:each="Recipe, iter:${Recipes}">
 <!--/* For Image of each Recipe */-->
