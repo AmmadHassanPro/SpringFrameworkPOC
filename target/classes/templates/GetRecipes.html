@@ -32,9 +32,10 @@
 <p th:text="${Recipe.description}"></p>
 <!--/* For displaying categories belonging to the Recipe To Be Implemened*/-->
 <div class="row">
-<div class="categories-button" th:each="Category,iterStat : ${Recipe.categories}" th:text="${Category.description}" th:value="${Category.id}">
+<a th:each="Category,iterStat : ${Recipe.categories}" th:href="@{'/getRecipeByCategory'+${Category.description}}">
+<div class="categories-button"  th:text="${Category.description}" >
      
-     </div>
+     </div> </a>
 </div>
 
 </div>
