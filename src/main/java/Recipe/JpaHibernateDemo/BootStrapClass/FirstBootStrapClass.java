@@ -512,6 +512,8 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		generalCat = cat_service.findByDescription("Fast Food");
 		cat_set = new ArrayList<Category>();
 		cat_set.add(generalCat);	
+		generalCat = cat_service.findByDescription("American");
+		cat_set.add(generalCat);	
 		generalRecipe.setCategories(cat_set);
 		recipe_set = new HashSet<Recipe>();		
 		recipe_set.add(generalRecipe);
