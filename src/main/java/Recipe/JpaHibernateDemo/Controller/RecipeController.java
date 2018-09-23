@@ -76,6 +76,8 @@ public class RecipeController {
 		this.recipe_list = this.recpie_service.findByCategory(category);
 		if(this.recipe_list==null) {return "Error";} // TBD 
 		model.addAttribute("Recipes",this.recipe_list);
+		String Headingtext = "Results for Category:" + category;
+		model.addAttribute("HeadingText",Headingtext);
 		return "GetRecipes";
 	}
 	
