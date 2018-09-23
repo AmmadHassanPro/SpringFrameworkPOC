@@ -69,6 +69,16 @@ public class RecipeController {
 		return "ViewRecipe";
 	}
 	
+	
+	@RequestMapping("/getRecipeByCategory{category}")
+	public String getRecipeByCategory(@PathVariable String category, Model model) throws Exception {
+    	
+		this.recipe_list = this.recpie_service.findByCategory(category);
+		if(this.recipe_list==null) {return "Error";} // TBD 
+		model.addAttribute("Recipes",this.recipe_list);
+		return "GetRecipes";
+	}
+	
 
 	@RequestMapping("/addNewRecipe")
 	public String addNewRecipe(Model model) {
