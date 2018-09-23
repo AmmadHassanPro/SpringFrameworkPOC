@@ -56,14 +56,17 @@
      </div>
     
      <div class="scroller">
-     <div class="categories-button" th:each="Category,iterStat : ${Categories}" th:text="${Category.description}" th:value="${Category.id}">
+     <a th:each="Category,iterStat : ${Categories}" th:href="@{'/getRecipeByCategory'+${Category.description}}">
+<div class="categories-button"  th:text="${Category.description}" >
+     
+     </div> </a>
      
      </div>
     
      
  
      
-     </div>
+   
 
      
       <div class="row" style="margin-top:10px">
@@ -73,13 +76,13 @@
      <h6 th:text="${Recipe.name}" ></h6>
      <p style="font-family: 'Roboto Condensed', sans-serif; font-size:14px;,overflow-wrap: break-word;" th:text="${ (#strings.length(Recipe.description) > 100) ? ('&quot;'+#strings.substring(Recipe.description,0,100)+ '&quot;'+'...') : '&quot;'+Recipe.description+'&quot;'}"   ></p>
      
-     </div>
+     </div> 
      
   
      
      
      
-     </div>
+       </div>
      </div>
      
      <hr/>
