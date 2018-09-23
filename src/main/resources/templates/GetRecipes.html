@@ -20,14 +20,13 @@
 <div th:replace="/fragments/header :: header">
 </div>
 <div class="container main-container ">
-<div class="row pt-2">
-<div class="col-md-4">
+<div class="row pt-2 pl-2">
 <h4 th:text="${HeadingText}" style="color:#FE7E7E"></h4>
-</div>
+
 </div>
 
 <!--/* Row for each result */-->
-<div class="row pt-2" th:each="Recipe, iter:${Recipes}">
+<div class="row pt-2 mt-3" th:each="Recipe, iter:${Recipes}" style="background: #ffffe6">
 <!--/* For Image of each Recipe */-->
 <div class="col-md-4">
 <a th:href="@{'/getRecipeById'+${Recipe.id}}"><img th:src="@{'data:image/jpeg;base64,'+*{T(org.apache.tomcat.util.codec.binary.Base64).encodeBase64String(Recipe.Image)}}" class="d-block w-100 h-75"/></a>
@@ -45,7 +44,7 @@
 </div>
 
 </div>
-
+</hr>
 </div>
 
 </div>
