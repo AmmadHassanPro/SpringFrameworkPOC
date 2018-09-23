@@ -82,14 +82,20 @@ public class RecipeController {
 	}
 	
 	
-	@RequestMapping("/SearchFor{recipe}")
-	public String SearchForRecipe(@PathVariable String recipe, Model model) throws Exception {
-    	/*
-		this.recipe_list = this.recpie_service.findByCategory(category);
-		if(this.recipe_list==null) {return "Error";} // TBD 
+	@RequestMapping("/SearchFor{recipeSearchTerm}")
+	public String SearchForRecipe(@PathVariable String recipeSearchTerm, Model model) throws Exception {
+    		
+		this.recipe_list = this.recpie_service.findByNameOrDesc(recipeSearchTerm);
+		String Headingtext = "Results for Searched Recipe:" + recipeSearchTerm;
+		model.addAttribute("HeadingText",Headingtext);
+		if(this.recipe_list==null || this.recipe_list.isEmpty()) {
+			Headingtext="Sorry, No Recipes Found for Search Term:"+recipeSearchTerm;
+			model.addAttribute("HeadingText",Headingtext);
+			return "GetRecipes";
+		
+		} 
 		model.addAttribute("Recipes",this.recipe_list);
-		String Headingtext = "Results for Category:" + category;
-		model.addAttribute("HeadingText",Headingtext);*/
+		
 		return "GetRecipes";
 	}
 	
