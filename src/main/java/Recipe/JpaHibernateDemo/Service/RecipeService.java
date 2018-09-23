@@ -49,6 +49,12 @@ public Recipe findById(String string) throws Exception{
 	
 }
 
+public List<Recipe> findByCategory(String category){
+	
+	this.recipeList = recipe_repo.findbyCategory(category);
+	return this.recipeList;
+}
+
 
 
 
