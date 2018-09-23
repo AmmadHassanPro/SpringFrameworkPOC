@@ -55,6 +55,12 @@ public List<Recipe> findByCategory(String category){
 	return this.recipeList;
 }
 
+public List<Recipe> findByNameOrDesc(String searchTerm){
+	this.recipeList = recipe_repo.findByNameOrDesc(searchTerm);
+	return this.recipeList;
+	
+}
+
 
 
 

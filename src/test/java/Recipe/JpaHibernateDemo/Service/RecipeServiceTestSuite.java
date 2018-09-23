@@ -236,6 +236,13 @@ public class RecipeServiceTestSuite {
 	 assertNotNull(recipeVar);
 	 
  }
+ 
+ @Test
+ public void testfindByNameOrDesc() {
+	 recipeVar = recipeService.findByNameOrDesc("guaca");// sample string to search
+	 assertNotNull(recipeVar);
+	 
+ }
 	
 		
 		
