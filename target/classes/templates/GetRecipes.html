@@ -21,14 +21,14 @@
 </div>
 <div class="container main-container ">
 <!--/* Row for each result */-->
-<div class="row" th:each="Recipe, iter:${Recipes}">
+<div class="row pt-2" th:each="Recipe, iter:${Recipes}">
 <!--/* For Image of each Recipe */-->
 <div class="col-md-4">
-<a th:href="@{'/getRecipeById'+${Recipe.id}}"><img th:src="@{'data:image/jpeg;base64,'+*{T(org.apache.tomcat.util.codec.binary.Base64).encodeBase64String(Recipe.Image)}}" class="d-block w-100"/></a>
+<a th:href="@{'/getRecipeById'+${Recipe.id}}"><img th:src="@{'data:image/jpeg;base64,'+*{T(org.apache.tomcat.util.codec.binary.Base64).encodeBase64String(Recipe.Image)}}" class="d-block w-100 h-75"/></a>
 </div>
 <!--/* For Recipe Name, Desc , Categories */-->
 <div class="col-md-8">
-<b th:text="${Recipe.name}"></b>
+<a th:href="@{'/getRecipeById'+${Recipe.id}}"><h4 th:text="${Recipe.name}"></h4></a>
 <p th:text="${Recipe.description}"></p>
 <!--/* For displaying categories belonging to the Recipe To Be Implemened*/-->
 <div class="row">
