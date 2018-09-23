@@ -14,9 +14,9 @@
 <img src="/Logo.png" alt="Logo" style="margin-top:-10px;">
 </li>
 <li class="nav-item ml-1">
-<input type="text" value="Search for Recipes" class="form-control">
+<input type="text" value="Search for Recipes" class="form-control" name="search" id="search">
 </li>
-<li class="nav-item "><button class="btn btn-success">Go</button></li>
+<li class="nav-item "><button class="btn btn-success" onclick="window.location.href='/SearchFor'+document.getElementById('search').value">Go</button></li>
 </ul>
 <ul class="navbar-nav ml-auto">
 <li class="nav-item"><a class="nav-link" href="/getRecipe">Home</a></button></li>
