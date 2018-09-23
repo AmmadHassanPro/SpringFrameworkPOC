@@ -229,8 +229,14 @@ public class RecipeServiceTestSuite {
 			
 		}
 		
-		
-		
+ @Test
+ public void testfindByCategory() {
+	 
+	 recipeVar = recipeService.findByCategory("American");
+	 assertNotNull(recipeVar);
+	 
+ }
+	
 		
 		
 		
