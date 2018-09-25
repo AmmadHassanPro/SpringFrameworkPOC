@@ -1,3 +1,4 @@
+[![CircleCI](https://circleci.com/gh/AmmadHassanPro/SpringFrameworkPOC.svg?style=svg)](https://circleci.com/gh/AmmadHassanPro/SpringFrameworkPOC)
 <b>Project Name</b>
 <p>The Easy Recipes App</p>
 
