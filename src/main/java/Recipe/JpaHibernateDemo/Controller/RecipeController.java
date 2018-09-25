@@ -37,9 +37,11 @@ public class RecipeController {
 	private Recipe recipe;
 	@Autowired
 	private RecipeCommandToRecipeEntity recipeCon;
-    public RecipeController(RecipeService recpie_service) {// Constructor based Dependency Injection
+    public RecipeController(RecipeService recpie_service,UnitOfMeasureService uomservice, CategoryService catservice ) {// Constructor based Dependency Injection
 		super();
 		this.recpie_service = recpie_service;
+		this.uomService = uomservice;
+		this.catService = catservice;
 	}
     
     @Autowired
