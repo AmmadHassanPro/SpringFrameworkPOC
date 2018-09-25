@@ -1,138 +1,120 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns:th="http://www.thymeleaf.org">
+
 <head>
-
-<title>Add New Recipe</title>
-
-
-
-<meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="custom.css">
-    
-    
 
     <title>Add New Recipe</title>
 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="custom.css">
 
+    <title>Add New Recipe</title>
 </head>
-<body class="customized-body" >
-<div th:replace="/fragments/header :: header">
-</div>
-	<div class="container main-container">
-		<form th:object="${recipe}" th:action="@{/saveOrUpdateRecipe}" onsubmit="return validateForm()">
-		<input type="hidden" th:field="*{id}" value="5"/>
 
+<body class="customized-body">
+    <div th:replace="/fragments/header :: header"></div>
+    <div class="container main-container">
+        <form th:object="${recipe}" th:action="@{/saveOrUpdateRecipe}" onsubmit="return validateForm()">
+            <input type="hidden" th:field="*{id}" value="5" />
 
-		    
-      <div class="row title-bar">
-        <b class="offset-md-2">Add New Recipe</b>
-      </div>
+            <div class="row title-bar">
+                <b class="offset-md-2">Add New Recipe</b>
+            </div>
 
+            <div class="row">
 
-      <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="form-group">
+                        <label for="name">Recipe Name </label>
+                        <input id="name" th:field="*{name}" class="form-control" name="name" type="text" maxlength="255" value="" required />
+                        <label id="cat_label" for="cat">Category </label>
 
-    <div class="col-md-8 offset-md-2">
-      <div class="form-group">
-        <label for="name">Recipe Name </label>
-			<input id ="name" th:field="*{name}" class="form-control" name="name" type="text" maxlength="255" value="" required/>
+                        <fieldset id="cat" class="customized-form-control">
+                            <input type="checkbox" th:each="Category,iterStat : ${catList}" th:text="${Category.description}" th:value="${Category.id}" th:field="*{categories[__${iterStat.index}__].id}" style="margin-left: 5px" />
 
+                        </fieldset>
 
-        <label id="cat_label" for="cat">Category </label>
+                        <label for="prep_time">Prep Time (Minutes)</label>
+                        <input id="prep_time" th:field="*{prepTime}" type="number" min="0" max="1000" class="form-control" name="prepTime" value="" required />
 
-        <fieldset id ="cat" class="customized-form-control" >
-    <input type="checkbox" th:each="Category,iterStat : ${catList}" th:text="${Category.description}" th:value="${Category.id}" th:field="*{categories[__${iterStat.index}__].id}" style="margin-left:5px"/>
+                        <label for="cookTime">Cook Time (Minutes) </label>
+                        <input id="cookTime" th:field="*{cookTime}" type="number" min="0" max="1000" class="form-control" name="cookTime" value="" required />
 
-		</fieldset>
+                        <label for="CookTime">Servings </label>
+                        <input id="CookTime" th:field="*{servings}" type="number" min="0" max="1000" class="form-control" name="servings" value="" required />
+                        <label for="source">Source </label>
+                        <input id="source" th:field="*{source}" class="form-control" name="source" type="url" maxlength="1000" value="" />
+                        <label for="image">Image Url </label>
+                        <input id="image" th:field="*{url}" class="form-control" name="url" type="url" maxlength="1000" value="" required />
+                        <label for="difficulty">Difficulty </label>
+                        <div>
+                            <select id="difficulty" th:field="*{difficulty}" class="form-control" required>
+                                <option value="EASY">EASY</option>
+                                <option value="HARD">HARD</option>
+                                <option value="KIND_OF_HARD">Kind Of Hard</option>
+                                <option value="Moderate">Moderate</option>
+                            </select>
+                        </div>
 
-    <label for="prep_time">Prep Time (Minutes)</label>
-    <input id="prep_time" th:field="*{prepTime}" type="number" min="0" max="1000" class="form-control" name="prepTime" value="" required/>
+                    </div>
 
-    <label for="cookTime">Cook Time (Minutes) </label>
-    <input id="cookTime" th:field="*{cookTime}" type="number" min="0" max="1000" class="form-control" name="cookTime" value="" required/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
 
-    <label for="CookTime">Servings </label>
-    <input id="CookTime" th:field="*{servings}" type="number" min="0" max="1000" class="form-control" name="servings" value="" required/>
+                    <div id="IngredientsDiv" name="IngredientsDiv">
+                        <div th:each="ingredient,iterStat : ${recipe.ingredients}" class="ingredientUnit">
 
-    <label for="source">Source </label>
-    <input id="source" th:field="*{source}" class="form-control" name="source" type="url" maxlength="1000" value=""/>
+                            <label class="ing_label description lead" for="element_6" th:text="'Ingredient#' + ${iterStat.count}"> </label>
+                            <br>
+                            <label for="desc">Description</label>
+                            <input id="desc" th:field="*{ingredients[__${iterStat.index}__].description}" class="form-control ing_desc" type="text" maxlength="255" value="" required />
+                            <label for="amount">Amount</label>
+                            <input id="amount" th:field="*{ingredients[__${iterStat.index}__].amount}" type="number" class="form-control ing_amount" required />
+                            <label for="uom">Unit Of Measure</label>
+                            <select id="uom" th:field="*{ingredients[__${iterStat.index}__].uom.id}" class="ing_uom form-control" required>
+                                <option th:each="unitOfMeasure : ${uomList}" th:text="${unitOfMeasure.description}" th:value="${unitOfMeasure.id}"></option>
+                            </select>
+                        </div>
+                    </div>
+                    <br>
+                    <button class="btn btn-primary" id="addIngredientButon" type="button" onclick="addIngredient()">Add More Ingredients
+                    </button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+                    <div class="form-group">
+                        <br>
+                        <label for="desc">Recipe Description </label>
+                        <textarea th:field="*{description}" id="desc" class="form-control" rows="3" cols="100" required></textarea>
+                        <label for="dir">Recipe Directions </label>
+                        <textarea th:field="*{directions}" id="dir" class="form-control" rows="30" cols="100" required></textarea>
+                        <label for="notes">Notes </label>
+                        <textarea th:field="*{recipeNotes.recipeNotes}" id="notes" class="form-control" rows="3" cols="100"></textarea>
+                        <br>
 
-    <label for="image">Image Url </label>
-    <input id="image" th:field="*{url}" class="form-control" name="url" type="url" maxlength="1000" value="" required/>
+                        <button id="saveForm" class="btn btn-secondary" type="submit" name="submit">Submit</button>
+                    </div>
+                </div>
+            </div>
 
-    <label for="difficulty">Difficulty </label>
-		<div>
-			<select id="difficulty" th:field="*{difficulty}" class="form-control" required>
-			<option value="EASY">EASY</option>
-			<option value="HARD">HARD</option>
-		  	<option value="KIND_OF_HARD">Kind Of Hard</option>
-			<option value="Moderate">Moderate</option>
-			</select>
-		</div>
+            <div th:replace="/fragments/footer :: footer"></div>
+    </div>
+    </div>
 
-		</div>
+    </form>
 
-        </div>
-        </div>
-  <div class="row">
-<div class="col-md-8 offset-md-2">
+    </div>
 
+    <script type="text/javascript" src="/Ingredient.js"></script>
+    <script type="text/javascript" src="/validate.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</body>
 
-  <div id="IngredientsDiv" name="IngredientsDiv">
-  		<div th:each="ingredient,iterStat : ${recipe.ingredients}" class="ingredientUnit">
-
-  			<label class="ing_label description lead" for="element_6" th:text="'Ingredient#' + ${iterStat.count}"> </label><br>
-  			<label for="desc">Description</label>
-  			<input id="desc" th:field="*{ingredients[__${iterStat.index}__].description}" class="form-control ing_desc" type="text" maxlength="255" value="" required/>
-  			<label for="amount">Amount</label>
-  			<input id="amount" th:field="*{ingredients[__${iterStat.index}__].amount}" type="number" class ="form-control ing_amount" required/>
-  			<label for="uom" >Unit Of Measure</label>
-  			<select id="uom" th:field="*{ingredients[__${iterStat.index}__].uom.id}" class="ing_uom form-control" required>
-  			<option th:each="unitOfMeasure : ${uomList}" th:text="${unitOfMeasure.description}" th:value="${unitOfMeasure.id}"></option>
-  		  	</select>
-
-  		</div>
-  		</div>
-  		<br>
-<button class="btn btn-primary" id="addIngredientButon" type="button" onclick="addIngredient()">Add More Ingredients</button>
-</div>
-  </div>
-<div class="row">
-<div class="col-md-8 offset-md-2">
-  <div class="form-group">
-    <br>
-    		<label for="desc">Recipe Description </label>
-    			<textarea th:field="*{description}" id="desc" class="form-control" rows="3" cols="100" required></textarea>
-
-          <label for="dir">Recipe Directions </label>
-      			<textarea th:field="*{directions}" id="dir" class="form-control" rows="30" cols="100" required></textarea>
-
-    		<label for="notes">Notes </label>
-    			<textarea th:field="*{recipeNotes.recipeNotes}" id="notes" class="form-control" rows="3" cols="100"></textarea>
-          <br>
-
-    				<button id="saveForm" class="btn btn-secondary" type="submit" name="submit">Submit</button>
-
-
-  </div>
-</div>
-</div>
-
-
-</div>
-</div>
-
-		</form>
-
-	</div>
-
-
-
-	<script type="text/javascript" src="/Ingredient.js"></script>
-	<script type="text/javascript" src="/validate.js"></script>
-	   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-	</body>
 </html>
