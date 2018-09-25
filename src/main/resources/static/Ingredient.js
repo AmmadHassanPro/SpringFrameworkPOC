@@ -19,3 +19,10 @@ function addIngredient(){
 
 	document.getElementById("IngredientsDiv").appendChild(newNode);
 }
+
+function removeIngredient(){
+	var child= document.getElementById("IngredientsDiv").children;
+	var length = document.getElementById("IngredientsDiv").children.length;
+	var lastNode= child[length-1];
+	lastNode.remove();
+}
