@@ -28,25 +28,42 @@ import org.springframework.ui.Model;
 
 import Recipe.JpaHibernateDemo.BootStrapClass.FirstBootStrapClass;
 import Recipe.JpaHibernateDemo.Controller.RecipeController;
+import Recipe.JpaHibernateDemo.Entities.Category;
 import Recipe.JpaHibernateDemo.Entities.Recipe;
+import Recipe.JpaHibernateDemo.Entities.UnitOfMeasure;
 import Recipe.JpaHibernateDemo.Repository.RecipeRepository;
+import Recipe.JpaHibernateDemo.Service.CategoryService;
 import Recipe.JpaHibernateDemo.Service.RecipeService;
+import Recipe.JpaHibernateDemo.Service.UnitOfMeasureService;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 //@Sql("data.sql")
 public class RecipeControllerTestSuite {
 	@Mock
 	private RecipeService recpie_service;
+	@Mock
+	private UnitOfMeasureService uomService; // to do, Add this to the constructor and unit tests
+	@Mock
+	private CategoryService catService;
+	
 	@Autowired
 	private RecipeService recpie_service_autowired;
+	@Autowired
+	private UnitOfMeasureService uomService_autowired; // to do, Add this to the constructor and unit tests
+	@Autowired
+	private CategoryService catService_autowired;
 	@Autowired
 	private RecipeController recipeController;
 	@Mock
 	private Model model;
 	
-	List<Recipe> recipe_list;
-	ArgumentCaptor<List<Recipe>> arg_capture;
-	ArgumentCaptor<Recipe> RecipeArgumentCaptor;
+	
+	
+	private List<Recipe> recipe_list;
+	private List<UnitOfMeasure> uom_list;
+	private List<Category> cat_list;
+	private ArgumentCaptor<List<Recipe>> arg_capture;
+	private ArgumentCaptor<Recipe> RecipeArgumentCaptor;
 
 	@Autowired	
 	private RecipeRepository recipe_repo;
@@ -56,16 +73,26 @@ public class RecipeControllerTestSuite {
 		// Registering all the objects as mocks which are annotated with @Mock
 		MockitoAnnotations.initMocks(this);
 		// Initializing
-		recipeController = new RecipeController(recpie_service);
+		recipeController = new RecipeController(recpie_service,uomService, catService);
 		//Given
 		//Adding two Recipe Objects, because we initialize two recipe on start in database
 		recipe_list = new ArrayList<Recipe>(); 
+		recipe_list.add(new Recipe());
+		recipe_list.add(new Recipe());
+		// Intializing Category List
+		cat_list = new ArrayList<Category>();
+		cat_list.add(new Category()); // mock Category element
+		cat_list.add(new Category()); //mock Category element
+		// Intializing Uom
+		uom_list = new ArrayList<UnitOfMeasure>();
+		uom_list.add(new UnitOfMeasure()); // mock UOM element
+		uom_list.add(new UnitOfMeasure()); // mock UOM element
 		
-		recipe_list.add(new Recipe());
-		recipe_list.add(new Recipe());
+		
 		// It will capture the argument passed in realtime for us
 		arg_capture  = ArgumentCaptor.forClass(List.class);
 		RecipeArgumentCaptor = ArgumentCaptor.forClass(Recipe.class);
+	
 	}
 	
 	//A demonstration of Spring Mock MVC
@@ -82,6 +109,8 @@ public class RecipeControllerTestSuite {
 	public void getRecipeList() throws Exception{
 	// Substituting findALL return value with this.recipe_list. We can do that when the object is registered as a Mock.
 	when(recpie_service.findAll()).thenReturn(this.recipe_list);
+	when(catService.findAll()).thenReturn(cat_list);
+	when(uomService.findAll()).thenReturn(uom_list);
 	//When
 	String recipe_page = recipeController.getRecipeList(model);
 	//Then
@@ -121,7 +150,7 @@ public class RecipeControllerTestSuite {
 	Recipe recipe = recpie_service_autowired.findById("1");
 	
 	// Re-intializing the RecipeController object , because we were passing a mock RecipeService in the @Before code block, but this time we needed to pass a real RecipeService object.
-	recipeController = new RecipeController(recpie_service_autowired); 
+	recipeController = new RecipeController(recpie_service_autowired,uomService_autowired,catService_autowired); 
 		
 	String returnedPageName = recipeController.getRecipeById("1", model);
 	
@@ -129,7 +158,7 @@ public class RecipeControllerTestSuite {
 	
 	assertEquals(recipe.getName(),RecipeArgumentCaptor.getValue().getName());
 
-	assertEquals(returnedPageName,"RecipeById");
+	assertEquals(returnedPageName,"ViewRecipe");
 
 	}
 	
