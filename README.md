@@ -1,5 +1,8 @@
+
 <b>Project Name</b>
 <p>The Easy Recipes App</p>
+
+[![CircleCI](https://circleci.com/gh/AmmadHassanPro/SpringFrameworkPOC.svg?style=svg)](https://circleci.com/gh/AmmadHassanPro/SpringFrameworkPOC)
 
 <b>Description</b>
 <p>A recipe sharing app, which contains a variety of categories to choose from. Users can register themselves and share recipes with one another , and can rate them as well </p>
