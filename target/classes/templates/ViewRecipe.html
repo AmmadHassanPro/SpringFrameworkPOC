@@ -15,6 +15,9 @@
 <body class="customized-body">
     <div th:replace="/fragments/header :: header"></div>
     <div class="container main-container ">
+      <div class="row title-bar">
+                <h5 class="offset-md-5 col-md-6" th:text="${Recipe.Name}"></h5>
+            </div>
         <div class="row" style="padding-top: 10px">
             <div class="col-md-6">
                 <img th:src="@{'data:image/jpeg;base64,'+*{T(org.apache.tomcat.util.codec.binary.Base64).encodeBase64String(Recipe.Image)}}" class="d-block w-100" />
