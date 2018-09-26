@@ -79,3 +79,6 @@ p.item-description-recipe{
 .margin-left-elements{
 	margin-left:10px !important;
 }
+ a:hover {
+  cursor:pointer;
+ }
