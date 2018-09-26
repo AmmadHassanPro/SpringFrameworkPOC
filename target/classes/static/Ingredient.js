@@ -23,6 +23,10 @@ function addIngredient(){
 function removeIngredient(){
 	var child= document.getElementById("IngredientsDiv").children;
 	var length = document.getElementById("IngredientsDiv").children.length;
+	if(length>1){
 	var lastNode= child[length-1];
 	lastNode.remove();
+	}
+	
+	
 }
