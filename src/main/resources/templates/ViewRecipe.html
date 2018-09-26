@@ -16,7 +16,8 @@
     <div th:replace="/fragments/header :: header"></div>
     <div class="container main-container ">
       <div class="row title-bar">
-                <h5 class="offset-md-5 col-md-6" th:text="${Recipe.Name}"></h5>
+      			<a class="col-md-2" onclick="window.history.back();"> &lt; Go Back</a>
+                <h5 class="offset-md-3 col-md-6" th:text="${Recipe.Name}"></h5>
             </div>
         <div class="row" style="padding-top: 10px">
             <div class="col-md-6">
