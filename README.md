@@ -19,6 +19,7 @@
   <li>Ratings Feature</li>
   <li>Featured Recipes to be Displayed on the homepage slider</li>
   <li>Fix bad naming conventions</li>
+  
   <li>Sonar Qube Code Coverage to atleast 90%</li>
   
 </ul>
