@@ -29,7 +29,7 @@ jobs:
       - store_artifacts:
           path: target/JpaHibernateDemo-0.0.1-SNAPSHOT.jar
           
-    publish-github-release:
+  publish-github-release:
     docker:
       - image: circleci/golang:1.8
     steps:
