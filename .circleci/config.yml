@@ -31,7 +31,7 @@ jobs:
           
     publish-github-release:
     docker:
-      - image: cibuilds/github:0.10
+      - image: circleci/openjdk:8-jdk-browsers
     steps:
       - attach_workspace:
           at: ./artifacts
@@ -39,7 +39,7 @@ jobs:
           name: "Publish Release on GitHub"
           command: |
             VERSION=1.0
-            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} artifacts/
+            ghr -t ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -c ${CIRCLE_SHA1} -delete ${VERSION} target/
 
 workflows:
   version: 2
