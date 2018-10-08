@@ -30,9 +30,9 @@ jobs:
           path: target/JpaHibernateDemo-0.0.1-SNAPSHOT.jar
           
       - persist_to_workspace:
-          root: JpaHibernateDemo
+          root: target
           paths:
-            - target/JpaHibernateDemo-0.0.1-SNAPSHOT.jar
+            - JpaHibernateDemo-0.0.1-SNAPSHOT.jar
           
   publish-github-release:
     docker:
