@@ -1,0 +1,77 @@
+
+∞Recipe.JpaHibernateDemo.CommandConverters.CategoryEntityToCategoryCommand#convert(LRecipe/JpaHibernateDemo/Entities/Category;)LRecipe/JpaHibernateDemo/Commands/CategoryCommand;
+__unknown_file (categoryEntity"paramAnnotations*∂
+1è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java* (?Õ 
+è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java. (=
+%1"0Recipe.JpaHibernateDemo.Commands.CategoryCommandﬂ
+‹
+è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java* (?
+%2":Recipe.JpaHibernateDemo.Commands.CategoryCommand#<init>()V*
+
+%1∂
+≥
+è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java (@
+categoryCommand"__id*
+
+%1˝
+˙
+è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java! (@
+%3"LRecipe.JpaHibernateDemo.Entities.Category#getDescription()Ljava/lang/String;*
+
+categoryEntityé
+ã
+è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java (A
+%4"TRecipe.JpaHibernateDemo.Commands.CategoryCommand#setDescription(Ljava/lang/String;)V*
+
+categoryCommand*
+
+%3Ú
+Ô
+è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java (.
+%5"ARecipe.JpaHibernateDemo.Entities.Category#getId()Ljava/lang/Long;*
+
+categoryEntityÉ
+Ä
+è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java (/
+%6"IRecipe.JpaHibernateDemo.Commands.CategoryCommand#setId(Ljava/lang/Long;)V*
+
+categoryCommand*
+
+%5"ß
+è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java (
+
+categoryCommand*≤
+2è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java
+ ("ö
+è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java (
+""*¬
+paramAnnotationsè
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java (8”
+–
+è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java (
+
+%0"
+__annotate*
+java.lang.Override*
+
+categoryEntityΩ
+∫
+è
+Ñ/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/CategoryEntityToCategoryCommand.java) (7
+categoryEntity"__annotation*
+
+%0*
+2
+1

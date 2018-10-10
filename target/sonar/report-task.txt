@@ -1,0 +1,7 @@
+organization=ammadhassanpro-github
+projectKey=AmmadHassanPro_SpringFrameworkPOC
+serverUrl=https://sonarcloud.io
+serverVersion=7.4.0.17996
+dashboardUrl=https://sonarcloud.io/dashboard?id=AmmadHassanPro_SpringFrameworkPOC
+ceTaskId=AWZcCK-jpxEm0oSLAbrh
+ceTaskUrl=https://sonarcloud.io/api/ce/task?id=AWZcCK-jpxEm0oSLAbrh

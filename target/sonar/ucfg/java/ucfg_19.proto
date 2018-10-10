@@ -1,0 +1,76 @@
+
+ÄRecipe.JpaHibernateDemo.CommandConverters.UnitOfMeasureEntityToUnitOfMeasureCommand#convert(LRecipe/JpaHibernateDemo/Entities/UnitOfMeasure;)LRecipe/JpaHibernateDemo/Commands/UnitOfMeasureCommand;
+__unknown_file (unitOfMeasureEntity"paramAnnotations*Ø
+1™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java7 (QÜÙ
+™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java; (O
+%1"5Recipe.JpaHibernateDemo.Commands.UnitOfMeasureCommandî
+ë
+™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java7 (Q
+%2"?Recipe.JpaHibernateDemo.Commands.UnitOfMeasureCommand#<init>()V*
+
+%1È
+Å
+™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java (R
+unitOfMeasureCommandObj"__id*
+
+%1†
+ƒ
+™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java  (;
+%3"FRecipe.JpaHibernateDemo.Entities.UnitOfMeasure#getId()Ljava/lang/Long;*
+
+unitOfMeasureEntityš
+—
+™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java (<
+%4"NRecipe.JpaHibernateDemo.Commands.UnitOfMeasureCommand#setId(Ljava/lang/Long;)V*
+
+unitOfMeasureCommandObj*
+
+%3‘
+Ž
+™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java) (M
+%5"QRecipe.JpaHibernateDemo.Entities.UnitOfMeasure#getDescription()Ljava/lang/String;*
+
+unitOfMeasureEntity¥
+¢
+™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java (N
+%6"YRecipe.JpaHibernateDemo.Commands.UnitOfMeasureCommand#setDescription(Ljava/lang/String;)V*
+
+unitOfMeasureCommandObj*
+
+%5"¹
+™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java (!
+
+unitOfMeasureCommandObj*Æ
+2™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java	 ("¤
+™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java (
+""*ê
+paramAnnotations™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java$ (Gâ
+ß
+™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java (
+
+%0"
+__annotate*
+java.lang.Override*
+
+unitOfMeasureEntityÌ
+É
+™
+Ž/Users/ammadhassan/git/SpringBootReboot/src/main/java/Recipe/JpaHibernateDemo/CommandConverters/UnitOfMeasureEntityToUnitOfMeasureCommand.java3 (F
+unitOfMeasureEntity"__annotation*
+
+%0*
+2
+1
