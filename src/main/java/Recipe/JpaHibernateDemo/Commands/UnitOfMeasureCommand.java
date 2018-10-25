@@ -1,8 +1,4 @@
 package Recipe.JpaHibernateDemo.Commands;
-
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 //A Command Object for unitOfMeasure Entity
 public class UnitOfMeasureCommand {
 	private Long id;
@@ -17,6 +13,6 @@ public class UnitOfMeasureCommand {
 		return description;
 	}
 	public void setDescription(String description) {
-		description = description;
+		this.description = description;
 	}
 }
