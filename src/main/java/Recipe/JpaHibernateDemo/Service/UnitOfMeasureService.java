@@ -13,34 +13,30 @@ import Recipe.JpaHibernateDemo.Repository.UnitOfMeasureRepository;
 
 @Service
 public class UnitOfMeasureService {
-	
 @Autowired
-private UnitOfMeasureRepository uom_repo;
-@Autowired
-private List<UnitOfMeasure> uom_list;
+private UnitOfMeasureRepository uomRepo;
 
 public UnitOfMeasure findByDescription(String description){
 
-	Optional<UnitOfMeasure> uom_optional = uom_repo.findByDescription(description);
+	Optional<UnitOfMeasure> uomList = uomRepo.findByDescription(description);
+	if(uomList.isPresent()) {
+	return uomList.get();
+	}
 	
-	UnitOfMeasure uom = uom_optional.get();
-	
-	return uom;
-	
+	return null;
 	
 }
 
 public void save(UnitOfMeasure uom) {
 	
-	
-	uom_repo.save(uom);
+	uomRepo.save(uom);
 	
 }
 
 public List<UnitOfMeasure> findAll() {
 	
-	List<UnitOfMeasure> uomList = new ArrayList<UnitOfMeasure>();
-	Iterable<UnitOfMeasure> i =  uom_repo.findAll();
+	List<UnitOfMeasure> uomList = new ArrayList<>();
+	Iterable<UnitOfMeasure> i =  uomRepo.findAll();
 	Iterator m = i.iterator();
 	while(m.hasNext()) {
 		uomList.add((UnitOfMeasure) m.next());

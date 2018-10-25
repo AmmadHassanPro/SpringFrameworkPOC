@@ -13,15 +13,15 @@ import Recipe.JpaHibernateDemo.Repository.CategoryRepository;
 public class CategoryService {
 	
 @Autowired
-private CategoryRepository cat_repo;
+private CategoryRepository catRepo;
 @Autowired
-private List<Category> cat_list;
+private List<Category> catList;
 
 public List<Category> findAll(){
 	
 	
-	cat_list = (List<Category>) cat_repo.findAll();
-	return cat_list;
+	catList = (List<Category>) catRepo.findAll();
+	return catList;
 	
 	
 }
@@ -31,10 +31,13 @@ public Category findByDescription(String description){
 		
 		return null;
 	}
-	Optional<Category> cat_optional = cat_repo.findByDescription(description);
-	Category cat = cat_optional.get();
-	return cat;
+	Optional<Category> catOptional = catRepo.findByDescription(description);
+	if(catOptional.isPresent()) {
+	return catOptional.get();
 	
+	}
+	
+	return null;
 	
 	
 }
@@ -44,7 +47,7 @@ public void save(Category cat) {
 		return;
 	}
 	
-	cat_repo.save(cat);
+	catRepo.save(cat);
 	
 }
 

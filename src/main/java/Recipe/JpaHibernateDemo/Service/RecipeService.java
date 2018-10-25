@@ -17,46 +17,40 @@ import Recipe.JpaHibernateDemo.Repository.RecipeRepository;
 public class RecipeService{
 
 @Autowired	
-private RecipeRepository recipe_repo;
+private RecipeRepository recipeRepo;
 @Autowired
-private List<Recipe> recipeList=new ArrayList<Recipe>(); // Cache, which will hold all the Recipes
-private boolean functionCalledBefore = false;
-
-private void updateCache() {
+private List<Recipe> recipeList=new ArrayList<>(); 
+public List<Recipe> findAll() {
 	
-	this.recipeList = (List<Recipe>) recipe_repo.findAll();
-}
-
-
-public List<Recipe> findAll() { // Returning the cached data
-	
-	this.recipeList = (List<Recipe>) recipe_repo.findAll();
+	this.recipeList = (List<Recipe>) recipeRepo.findAll();
 	return this.recipeList;
 		
 }
 
 public void save(Recipe recipe) {
 	
-	this.recipe_repo.save(recipe);
+	this.recipeRepo.save(recipe);
 	
 }
 
-public Recipe findById(String string) throws Exception{
+public Recipe findById(String string) {
 	Long id = Long.valueOf(string);
-	Optional<Recipe> optRecipe = recipe_repo.findById(id);
-	Recipe recipe = optRecipe.get();
-	return recipe;
+	Optional<Recipe> optRecipe = recipeRepo.findById(id);
+	if(optRecipe.isPresent()) {
+	return optRecipe.get();
+	}
+	return null;
 	
 }
 
 public List<Recipe> findByCategory(String category){
 	
-	this.recipeList = recipe_repo.findbyCategory(category);
+	this.recipeList = recipeRepo.findbyCategory(category);
 	return this.recipeList;
 }
 
 public List<Recipe> findByNameOrDesc(String searchTerm){
-	this.recipeList = recipe_repo.findByNameOrDesc(searchTerm);
+	this.recipeList = recipeRepo.findByNameOrDesc(searchTerm);
 	return this.recipeList;
 	
 }
