@@ -1,17 +1,10 @@
-	package Recipe.JpaHibernateDemo.BootStrapClass;
+package Recipe.JpaHibernateDemo.BootStrapClass;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
 import java.math.BigDecimal;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
-
-import javax.imageio.ImageIO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationListener;
@@ -44,13 +37,13 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 
 	private Difficulty generalDifficulty;
 	@Autowired
-	private CategoryService cat_service;
+	private CategoryService catService;
 	
 	@Autowired
-	private UnitOfMeasureService uom_service;
+	private UnitOfMeasureService uomService;
 	
 	@Autowired
-	private RecipeRepository recipe_repo;
+	private RecipeRepository recipeRepo;
 	
 	private ImageConverter byteArrayConverter = new ImageConverter();
 
@@ -110,87 +103,87 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		generalNotes.setRecipeNotes("Be careful handling chiles if using. Wash your hands thoroughly after handling and do not touch your eyes or the area near your eyes with your hands for several hours.");
 		generalNotes.setRecipe(generalRecipe);
 		generalRecipe.setRecipeNotes(generalNotes);
-		generalCat = cat_service.findByDescription("American");
-		List<Category> cat_set = new ArrayList<Category>();
-		cat_set.add(generalCat);	
-		generalRecipe.setCategories(cat_set);
-		Set<Recipe> recipe_set = new HashSet<Recipe>();		
-		recipe_set.add(generalRecipe);
+		generalCat = catService.findByDescription("American");
+		List<Category> catList = new ArrayList<>();
+		catList.add(generalCat);	
+		generalRecipe.setCategories(catList);
+		Set<Recipe> recipeSet = new HashSet<>();		
+		recipeSet.add(generalRecipe);
 		generalRecipe.setDifficulty(generalDifficulty.EASY);
 		
 		//Adding Ingredients
-		List<Ingredient> ingredients_set = new ArrayList<Ingredient>();
+		List<Ingredient> ingredientsList = new ArrayList<>();
 		// Ingredient 1
 		generalIngredient.setDescription("ripe avocados");
 		generalIngredient.setAmount(new BigDecimal("2.00"));
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 2
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("Kosher salt");
 		generalIngredient.setAmount(new BigDecimal("0.5"));
 		generalIngredient.setRecipes(generalRecipe);
-		generalUnitofMeasure = uom_service.findByDescription("Teaspoon");
+		generalUnitofMeasure = uomService.findByDescription("Teaspoon");
 		generalIngredient.setUom(generalUnitofMeasure);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 3
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("fresh lime juice or lemon juice");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalUnitofMeasure = uomService.findByDescription("Tablespoon");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 4
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("minced red onion or thinly sliced green onion");
 		generalIngredient.setAmount(new BigDecimal("2.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalUnitofMeasure = uomService.findByDescription("Tablespoon");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 5
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("serrano chiles, stems and seeds removed, minced");
 		generalIngredient.setAmount(new BigDecimal("2.0"));
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 6
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("cilantro (leaves and tender stems), finely chopped");
 		generalIngredient.setAmount(new BigDecimal("2.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalUnitofMeasure = uomService.findByDescription("Tablespoon");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 7
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("freshly grated black pepper");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Dash");
+		generalUnitofMeasure = uomService.findByDescription("Dash");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 8
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("ripe tomato, seeds and pulp removed, chopped");
 		generalIngredient.setAmount(new BigDecimal("0.5"));
-		generalUnitofMeasure = uom_service.findByDescription("Dash");
+		generalUnitofMeasure = uomService.findByDescription("Dash");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
-		generalRecipe.setIngredients(ingredients_set);
+		generalRecipe.setIngredients(ingredientsList);
 		
 		generalRecipe.setImage(byteArrayConverter.ConvertToByteArray("http://www.simplyrecipes.com/wp-content/uploads/2014/05/guacamole-horiz-a-1600.jpg"));
-		recipe_repo.save(generalRecipe);
+		recipeRepo.save(generalRecipe);
 		
 		
 		
@@ -223,176 +216,176 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		generalNotes.setRecipeNotes("Look for ancho chile powder with the Mexican ingredients at your grocery store, on buy it online. (If you can't find ancho chili powder, you replace the ancho chili, the oregano, and the cumin with 2 1/2 tablespoons regular chili powder, though the flavor won't be quite the same.");
 		generalNotes.setRecipe(generalRecipe);
 		generalRecipe.setRecipeNotes(generalNotes);
-		generalCat = cat_service.findByDescription("Mexican");
-		cat_set = new ArrayList<Category>();
-		cat_set.add(generalCat);	
-		generalRecipe.setCategories(cat_set);
-		recipe_set = new HashSet<Recipe>();		
-		recipe_set.add(generalRecipe);
+		generalCat = catService.findByDescription("Mexican");
+		catList = new ArrayList<>();
+		catList.add(generalCat);	
+		generalRecipe.setCategories(catList);
+		recipeSet = new HashSet<>();		
+		recipeSet.add(generalRecipe);
 		generalRecipe.setDifficulty(generalDifficulty.MODERATE);
 
 
 		//Adding Ingredients
-		ingredients_set = new ArrayList<Ingredient>();
+		ingredientsList = new ArrayList<>();
 		// Ingredient 1
 		generalIngredient.setDescription("ancho chili powder");
 		generalIngredient.setAmount(new BigDecimal("2.00"));
-		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalUnitofMeasure = uomService.findByDescription("Tablespoon");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 2
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("dried oregano");
 		generalIngredient.setAmount(new BigDecimal("1"));
 		generalIngredient.setRecipes(generalRecipe);
-		generalUnitofMeasure = uom_service.findByDescription("Teaspoon");
+		generalUnitofMeasure = uomService.findByDescription("Teaspoon");
 		generalIngredient.setUom(generalUnitofMeasure);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 3
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("dried cumin");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalUnitofMeasure = uomService.findByDescription("Tablespoon");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 4
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("sugar");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Teaspoon");
+		generalUnitofMeasure = uomService.findByDescription("Teaspoon");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 5
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("salt");
 		generalIngredient.setAmount(new BigDecimal("0.5"));
-		generalUnitofMeasure = uom_service.findByDescription("Teaspoon");
+		generalUnitofMeasure = uomService.findByDescription("Teaspoon");
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 6
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("garlic, finely chopped");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Clove");
+		generalUnitofMeasure = uomService.findByDescription("Clove");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 7
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("finely grated orange zest");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalUnitofMeasure = uomService.findByDescription("Tablespoon");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 8
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("fresh-squeezed orange juice");
 		generalIngredient.setAmount(new BigDecimal("3"));
-		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalUnitofMeasure = uomService.findByDescription("Tablespoon");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 
 		//Ingredient 9
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("olive oil");
 		generalIngredient.setAmount(new BigDecimal("2"));
-		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalUnitofMeasure = uomService.findByDescription("Tablespoon");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 10
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("skinless, boneless chicken thighs (1 1/4 pounds)");
 		generalIngredient.setAmount(new BigDecimal("5"));
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 11
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("corn tortillas");
 		generalIngredient.setAmount(new BigDecimal("8"));
-		generalUnitofMeasure = uom_service.findByDescription("Small");
+		generalUnitofMeasure = uomService.findByDescription("Small");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 12
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription(" packed baby arugula (3 ounces)");
 		generalIngredient.setAmount(new BigDecimal("3"));
-		generalUnitofMeasure = uom_service.findByDescription("Cup");
+		generalUnitofMeasure = uomService.findByDescription("Cup");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 13
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("ripe avocados, sliced");
 		generalIngredient.setAmount(new BigDecimal("2"));
-		generalUnitofMeasure = uom_service.findByDescription("Medium");
+		generalUnitofMeasure = uomService.findByDescription("Medium");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 
 		//Ingredient 14
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("radishes, thinly sliced");
 		generalIngredient.setAmount(new BigDecimal("4"));
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 13
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("cherry tomatoes, halved");
 		generalIngredient.setAmount(new BigDecimal("0.5"));
-		generalUnitofMeasure = uom_service.findByDescription("Pint");
+		generalUnitofMeasure = uomService.findByDescription("Pint");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 14
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("red onion, thinly sliced");
 		generalIngredient.setAmount(new BigDecimal("0.25"));
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 15
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("Roughly chopped cilantro");
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 16
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("cup sour cream thinned with 1/4 cup milk");
 		generalIngredient.setAmount(new BigDecimal("0.5"));
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 17
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("lime, cut into wedges");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
-		generalRecipe.setIngredients(ingredients_set);
+		generalRecipe.setIngredients(ingredientsList);
 		generalRecipe.setImage(byteArrayConverter.ConvertToByteArray("http://www.simplyrecipes.com/wp-content/uploads/2017/05/2017-05-29-GrilledChickenTacos-2.jpg"));
-		recipe_repo.save(generalRecipe);		
+		recipeRepo.save(generalRecipe);		
 		
 		
 		initialization();
@@ -426,65 +419,65 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		generalNotes.setRecipeNotes("A good way to test if a chicken is done is to pierce the thickest part of the thigh with a skewer to see if the juices are clear which means it is cooked.");
 		generalNotes.setRecipe(generalRecipe);
 		generalRecipe.setRecipeNotes(generalNotes);
-		generalCat = cat_service.findByDescription("Fast Food");
-		cat_set = new ArrayList<Category>();
-		cat_set.add(generalCat);	
-		generalRecipe.setCategories(cat_set);
-		recipe_set = new HashSet<Recipe>();		
-		recipe_set.add(generalRecipe);
+		generalCat = catService.findByDescription("Fast Food");
+		catList = new ArrayList<>();
+		catList.add(generalCat);	
+		generalRecipe.setCategories(catList);
+		recipeSet = new HashSet<>();		
+		recipeSet.add(generalRecipe);
 		generalRecipe.setDifficulty(generalDifficulty.MODERATE);
 
 
 		//Adding Ingredients
-		ingredients_set = new ArrayList<Ingredient>();
+		ingredientsList = new ArrayList<>();
 		// Ingredient 1
 		generalIngredient.setDescription("Chicken Meat");
 		generalIngredient.setAmount(new BigDecimal("1.00"));
-		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalUnitofMeasure = uomService.findByDescription("Unit");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 2
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("Sage Stuffing");
 		generalIngredient.setAmount(new BigDecimal("1"));
 		generalIngredient.setRecipes(generalRecipe);
-		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalUnitofMeasure = uomService.findByDescription("Unit");
 		generalIngredient.setUom(generalUnitofMeasure);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 3
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("Flour");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalUnitofMeasure = uomService.findByDescription("Tablespoon");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 4
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("Lemon Stuffing");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalUnitofMeasure = uomService.findByDescription("Unit");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 5
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("Canola Spray");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalUnitofMeasure = uomService.findByDescription("Unit");
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		
 		
-		generalRecipe.setIngredients(ingredients_set);
+		generalRecipe.setIngredients(ingredientsList);
 		generalRecipe.setImage(byteArrayConverter.ConvertToByteArray("https://static.kidspot.com.au/recipe_asset/572/3239.jpg-20150309012046~q75,dx720y432u1r1gg,c--.jpg"));
-		recipe_repo.save(generalRecipe);	
+		recipeRepo.save(generalRecipe);	
 		
 		
 		
@@ -509,67 +502,67 @@ public class FirstBootStrapClass implements ApplicationListener<ContextRefreshed
 		generalNotes.setRecipeNotes("I often use frozen mixed vegetables in a pinch for an even quicker meal.");
 		generalNotes.setRecipe(generalRecipe);
 		generalRecipe.setRecipeNotes(generalNotes);
-		generalCat = cat_service.findByDescription("Fast Food");
-		cat_set = new ArrayList<Category>();
-		cat_set.add(generalCat);	
-		generalCat = cat_service.findByDescription("American");
-		cat_set.add(generalCat);	
-		generalRecipe.setCategories(cat_set);
-		recipe_set = new HashSet<Recipe>();		
-		recipe_set.add(generalRecipe);
+		generalCat = catService.findByDescription("Fast Food");
+		catList = new ArrayList<>();
+		catList.add(generalCat);	
+		generalCat = catService.findByDescription("American");
+		catList.add(generalCat);	
+		generalRecipe.setCategories(catList);
+		recipeSet = new HashSet<>();		
+		recipeSet.add(generalRecipe);
 		generalRecipe.setDifficulty(generalDifficulty.MODERATE);
 
 
 		//Adding Ingredients
-		ingredients_set = new ArrayList<Ingredient>();
+		ingredientsList = new ArrayList<>();
 		// Ingredient 1
 		generalIngredient.setDescription("Chicken Meat");
 		generalIngredient.setAmount(new BigDecimal("1.00"));
-		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalUnitofMeasure = uomService.findByDescription("Tablespoon");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 2
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("Sage Stuffing");
 		generalIngredient.setAmount(new BigDecimal("1"));
 		generalIngredient.setRecipes(generalRecipe);
-		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalUnitofMeasure = uomService.findByDescription("Unit");
 		generalIngredient.setUom(generalUnitofMeasure);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 3
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("Flour");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Tablespoon");
+		generalUnitofMeasure = uomService.findByDescription("Tablespoon");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 4
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("Lemon Stuffing");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalUnitofMeasure = uomService.findByDescription("Unit");
 		generalIngredient.setUom(generalUnitofMeasure);
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		//Ingredient 5
 		generalIngredient=new Ingredient();
 		generalIngredient.setDescription("Canola Spray");
 		generalIngredient.setAmount(new BigDecimal("1.0"));
-		generalUnitofMeasure = uom_service.findByDescription("Unit");
+		generalUnitofMeasure = uomService.findByDescription("Unit");
 		generalIngredient.setRecipes(generalRecipe);
-		ingredients_set.add(generalIngredient);
+		ingredientsList.add(generalIngredient);
 		
 		
 		
-		generalRecipe.setIngredients(ingredients_set);
+		generalRecipe.setIngredients(ingredientsList);
 		generalRecipe.setImage(byteArrayConverter.ConvertToByteArray("https://images.media-allrecipes.com/userphotos/560x315/2458255.jpg"));
-		recipe_repo.save(generalRecipe);	
+		recipeRepo.save(generalRecipe);	
 		
 		
 	}

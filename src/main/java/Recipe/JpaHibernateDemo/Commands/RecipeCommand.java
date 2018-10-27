@@ -1,15 +1,12 @@
 package Recipe.JpaHibernateDemo.Commands;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Set;
-
 
 import Recipe.JpaHibernateDemo.Entities.Difficulty;
-//A Command Object for Recipe Entity
+//A Command Object for Recipe Entity aka Backing Bean
 public class RecipeCommand {
-	public Long id=null;	
+	private Long id=null;	
 	 private Difficulty difficulty;
 	 private String name;
 	private String description;
@@ -21,8 +18,8 @@ public class RecipeCommand {
    private String directions;
  
    private NotesCommand recipeNotes;
-   private List<IngredientCommand> ingredients =new ArrayList<IngredientCommand>();
-   private List<CategoryCommand> categories=new ArrayList<CategoryCommand>();
+   private List<IngredientCommand> ingredients =new ArrayList<>();
+   private List<CategoryCommand> categories=new ArrayList<>();
    
   public List<CategoryCommand> getCategories() {
 		return categories;

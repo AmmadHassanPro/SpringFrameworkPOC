@@ -6,21 +6,15 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import Recipe.JpaHibernateDemo.Entities.Category;
-import Recipe.JpaHibernateDemo.Entities.UnitOfMeasure;
 import Recipe.JpaHibernateDemo.Service.CategoryService;
-import Recipe.JpaHibernateDemo.Service.UnitOfMeasureService;
 
-/*The class will initialize Unit of Measure and Categories for Junit test Cases
+//The class will initialize Categories table for the app
 
- */
 @Component
 public class DatabaseInitiaization implements ApplicationListener<ContextRefreshedEvent>{
 
 	@Autowired
-	private CategoryService cat_service;
-	
-	@Autowired
-	private UnitOfMeasureService uom_service;
+	private CategoryService catService;
 	
 	@Override
 	public void onApplicationEvent(ContextRefreshedEvent arg0) {
@@ -33,84 +27,32 @@ public class DatabaseInitiaization implements ApplicationListener<ContextRefresh
 			
 			Category cat = new Category();
 			cat.setDescription("Seafood");
-			cat_service.save(cat);
+			catService.save(cat);
 			
 			cat = new Category();
 			cat.setDescription("Desert");
-			cat_service.save(cat);
+			catService.save(cat);
 			
 			cat = new Category();
 			cat.setDescription("Vegan");
-			cat_service.save(cat);
+			catService.save(cat);
 			
 			cat = new Category();
 			cat.setDescription("Salad");
-			cat_service.save(cat);
+			catService.save(cat);
 			
 			cat = new Category();
 			cat.setDescription("Sweet");
-			cat_service.save(cat);
+			catService.save(cat);
 			
 			cat = new Category();
 			cat.setDescription("Sandwhich");
-			cat_service.save(cat);
+			catService.save(cat);
 			
 			cat = new Category();
 			cat.setDescription("Low Fat");
-			cat_service.save(cat);
-			
-			
-			
-			/*
-			Category cat = new Category();
-			cat.setDescription("American");
-			cat_service.save(cat);
-			
-			
-			cat.setDescription("Italian");
-			cat_service.save(cat);
-			
-			cat.setDescription("Mexican");
-			cat_service.save(cat);
-			
-			cat.setDescription("Fast Food");
-			cat_service.save(cat);
-			*/
-			
-			/*
-			UnitOfMeasure uom = new UnitOfMeasure();
-			uom.setDescription("Teaspoon");
-			uom_service.save(uom);
-			
-			uom.setDescription("Tablespoon");
-			uom_service.save(uom);
-			
-			uom.setDescription("Cup");
-			uom_service.save(uom);
-			
-			uom.setDescription("Pinch");
-			uom_service.save(uom);
-			
-			uom.setDescription("Clove");
-			uom_service.save(uom);
-			
-			uom.setDescription("Small");
-			uom_service.save(uom);
-			
-			uom.setDescription("Medium");
-			uom_service.save(uom);
-			
-			uom.setDescription("Pint");
-			uom_service.save(uom);
-			
-			uom.setDescription("Dash");
-			uom_service.save(uom);
-			*/
-			
+			catService.save(cat);
+						
 		}
-
-
-
-	
 		
 }
